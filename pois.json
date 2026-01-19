@@ -1,0 +1,83 @@
+[
+{
+    "name": "ZERO",
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "category": "ZERO",
+    "owner": "ZERO",
+    "notes": "ZERO"
+  },
+  {
+    "name": "Sand & Gravel Shop",
+    "x": 188,
+    "y": 71,
+    "z": 86,
+    "category": "Shop",
+    "owner": "Bomberbird",
+    "notes": "The shop is currently empty; supply has not been delivered yet. This note will be updated once supply is achieved."
+  },
+  {
+    "name": "Bamboo Farm",
+    "x": -158,
+    "y": 69,
+    "z": 815,
+    "category": "Farm",
+    "owner": "Skullman",
+    "notes": "Entrance is a small tunnel at the listed coords."
+  },
+  {
+    "name": "Nether Portal",
+    "x": 1,
+    "y": 14,
+    "z": 102,
+    "category": "Portal",
+    "owner": "Skullman",
+    "notes": "Portal near Skullman base."
+  },
+  {
+    "name": "Sculk Farm",
+    "x": -1278,
+    "y": -40,
+    "z": -1213,
+    "category": "Farm",
+    "owner": "Bomberbird",
+    "notes": "Slow farm. May be converted to zombie farm. Dirt, stone, deepslate convertible."
+  },
+  {
+    "name": "Wool Farm",
+    "x": -270,
+    "y": 69,
+    "z": 796,
+    "category": "Farm",
+    "owner": "Skullman"
+  },
+  {
+    "name": "Sorting Barn",
+    "x": -1443,
+    "y": 71,
+    "z": -955,
+    "category": "Structure",
+    "owner": "GeshGiezel, Fredo",
+    "notes": "Sorter room. Feel free to use; leave 1 item so sorting continues."
+  },
+  {
+    "name": "Cloud & Vamp’s Spot",
+    "x": 273,
+    "y": 68,
+    "z": -227,
+    "category": "Base",
+    "owner": "Cloud, Vamp",
+    "notes": "Posted No Trespassing"
+    },
+    {
+        "name": "Lava Farm",
+        "x": -48,
+        "y": 74,
+        "z": -870,
+        "category": "Farm",
+        "owner": "Everyone",
+        "notes": "Small community lava farm. Good for making obsidian too. Builder got carried away posing next to a massive pumpkin — irrelevant but amusing."
+    }
+
+]

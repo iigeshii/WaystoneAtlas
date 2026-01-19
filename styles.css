@@ -1,0 +1,68 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 10px 14px;
+  border-bottom: 1px solid #ccc;
+}
+
+#app {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+#directory {
+  width: 280px;
+  border-right: 1px solid #ccc;
+  padding: 10px;
+  overflow-y: auto;
+  background: #fafafa;
+}
+
+#directory h2 {
+  margin-top: 0;
+  font-size: 1.1em;
+}
+
+#poi-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#poi-list li {
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#poi-list li:hover {
+  background: #e6e6e6;
+}
+
+#map {
+  flex: 1;
+}
+
+.dir-header {
+  font-weight: bold;
+  margin-top: 12px;
+  padding: 6px 8px;
+  cursor: default;
+  color: #333;
+}
+
+.dir-item {
+  padding: 6px 8px 6px 18px;
+  cursor: pointer;
+  border-radius: 4px;
+}
