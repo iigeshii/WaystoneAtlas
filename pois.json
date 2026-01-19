@@ -1,13 +1,4 @@
 [
-{
-    "name": "ZERO",
-    "x": 0,
-    "y": 0,
-    "z": 0,
-    "category": "ZERO",
-    "owner": "ZERO",
-    "notes": "ZERO"
-  },
   {
     "name": "Sand & Gravel Shop",
     "x": 188,
@@ -28,9 +19,9 @@
   },
   {
     "name": "Nether Portal",
-    "x": 1,
+    "x": -141,
     "y": 14,
-    "z": 102,
+    "z": 851,
     "category": "Portal",
     "owner": "Skullman",
     "notes": "Portal near Skullman base."
@@ -57,7 +48,7 @@
     "x": -1443,
     "y": 71,
     "z": -955,
-    "category": "Structure",
+    "category": "Other",
     "owner": "GeshGiezel, Fredo",
     "notes": "Sorter room. Feel free to use; leave 1 item so sorting continues."
   },
@@ -78,6 +69,46 @@
         "category": "Farm",
         "owner": "Everyone",
         "notes": "Small community lava farm. Good for making obsidian too. Builder got carried away posing next to a massive pumpkin — irrelevant but amusing."
+    },
+    {
+      "name": "Free stuff from Guardian Farm",
+      "x": 215,
+      "y": 71,
+      "z": 196,
+      "category": "Shop",
+      "owner": "Skullman",
+      "notes": "Guardian Remains"
+    },
+    {
+      "name": "Mysterious Grave",
+      "x": 205,
+      "y": 69,
+      "z": -280,
+      "category": "Other",
+      "owner": "Elena",
+      "notes": "Trail of blood(?) leading to Cloud & Vamp’s Spot"
+    },
+    {
+      "name": "Manual Spider Farm",
+      "x": -1183,
+      "y": 61,
+      "z": -978,
+      "category": "Farm",
+      "owner": "Bomberbird",
+      "notes": "All items flow up the bubble elevator into the chest above, so no immediate pickup is needed. If you take items from the chest, please inform the owner."
+    },
+    {
+      "name": "Poppies Iron Farm & Trading Hall",
+      "x": -5,
+      "y": 70,
+      "z": -876,
+      "category": "Farm",
+      "owner": "The Auld Witch",
+      "notes": "Iron farm with attached trading hall."
     }
+
+
+
+
 
 ]
