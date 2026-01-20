@@ -5,35 +5,40 @@
   <title>Waystone Atlas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
-
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header>
+    <div class="topbar">
+      <div class="title">Waystone Atlas</div>
 
-<header>
-  <h1>Waystone Atlas</h1>
-</header>
+      <label class="control">
+        Map:
+        <select id="map-select">
+          <option value="Overworld">Overworld</option>
+          <option value="Nether">Nether</option>
+        </select>
+      </label>
 
-<div id="app">
-  <aside id="directory">
-    <h2>Waystones</h2>
-    <ul id="poi-list"></ul>
-  </aside>
+      <label class="control">
+        Search:
+        <input id="search" type="text" placeholder="type to filter…" />
+      </label>
+    </div>
+  </header>
 
-  <div id="map"></div>
-</div>
+  <main id="app">
+    <aside id="directory">
+      <div class="toc-title">📍 REALM LOCATIONS — TABLE OF CONTENTS</div>
+      <ul id="poi-list"></ul>
+    </aside>
 
-<!-- Leaflet JS -->
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-</script>
+    <div id="map"></div>
+  </main>
 
-<script src="app.js" defer></script>
-
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>

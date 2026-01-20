@@ -6,7 +6,8 @@
     "z": 86,
     "category": "Shop",
     "owner": "Bomberbird",
-    "notes": "The shop is currently empty; supply has not been delivered yet. This note will be updated once supply is achieved."
+    "notes": "The shop is currently empty; supply has not been delivered yet. This note will be updated once supply is achieved.",
+    "dimension": "Overworld"
   },
   {
     "name": "Bamboo Farm",
@@ -15,7 +16,8 @@
     "z": 815,
     "category": "Farm",
     "owner": "Skullman",
-    "notes": "Entrance is a small tunnel at the listed coords."
+    "notes": "Entrance is a small tunnel at the listed coords.",
+    "dimension": "Overworld"
   },
   {
     "name": "Nether Portal",
@@ -24,7 +26,8 @@
     "z": 851,
     "category": "Portal",
     "owner": "Skullman",
-    "notes": "Portal near Skullman base."
+    "notes": "Portal near Skullman base.",
+    "dimension": "Overworld"
   },
   {
     "name": "Sculk Farm",
@@ -33,7 +36,8 @@
     "z": -1213,
     "category": "Farm",
     "owner": "Bomberbird",
-    "notes": "Slow farm. May be converted to zombie farm. Dirt, stone, deepslate convertible."
+    "notes": "Slow farm. May be converted to zombie farm. Dirt, stone, deepslate convertible.",
+    "dimension": "Overworld"
   },
   {
     "name": "Wool Farm",
@@ -41,7 +45,8 @@
     "y": 69,
     "z": 796,
     "category": "Farm",
-    "owner": "Skullman"
+    "owner": "Skullman",
+    "dimension": "Overworld"
   },
   {
     "name": "Sorting Barn",
@@ -50,7 +55,8 @@
     "z": -955,
     "category": "Other",
     "owner": "GeshGiezel, Fredo",
-    "notes": "Sorter room. Feel free to use; leave 1 item so sorting continues."
+    "notes": "Sorter room. Feel free to use; leave 1 item so sorting continues.",
+    "dimension": "Overworld"
   },
   {
     "name": "Cloud & Vamp’s Spot",
@@ -59,56 +65,57 @@
     "z": -227,
     "category": "Base",
     "owner": "Cloud, Vamp",
-    "notes": "Posted No Trespassing"
-    },
-    {
-        "name": "Lava Farm",
-        "x": -48,
-        "y": 74,
-        "z": -870,
-        "category": "Farm",
-        "owner": "Everyone",
-        "notes": "Small community lava farm. Good for making obsidian too. Builder got carried away posing next to a massive pumpkin — irrelevant but amusing."
-    },
-    {
-      "name": "Free stuff from Guardian Farm",
-      "x": 215,
-      "y": 71,
-      "z": 196,
-      "category": "Shop",
-      "owner": "Skullman",
-      "notes": "Guardian Remains"
-    },
-    {
-      "name": "Mysterious Grave",
-      "x": 205,
-      "y": 69,
-      "z": -280,
-      "category": "Other",
-      "owner": "Elena",
-      "notes": "Trail of blood(?) leading to Cloud & Vamp’s Spot"
-    },
-    {
-      "name": "Manual Spider Farm",
-      "x": -1183,
-      "y": 61,
-      "z": -978,
-      "category": "Farm",
-      "owner": "Bomberbird",
-      "notes": "All items flow up the bubble elevator into the chest above, so no immediate pickup is needed. If you take items from the chest, please inform the owner."
-    },
-    {
-      "name": "Poppies Iron Farm & Trading Hall",
-      "x": -5,
-      "y": 70,
-      "z": -876,
-      "category": "Farm",
-      "owner": "The Auld Witch",
-      "notes": "Iron farm with attached trading hall."
-    }
-
-
-
-
-
+    "notes": "Posted No Trespassing",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Lava Farm",
+    "x": -48,
+    "y": 74,
+    "z": -870,
+    "category": "Farm",
+    "owner": "Everyone",
+    "notes": "Small community lava farm. Good for making obsidian too. Builder got carried away posing next to a massive pumpkin — irrelevant but amusing.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Free stuff from Guardian Farm",
+    "x": 215,
+    "y": 71,
+    "z": 196,
+    "category": "Shop",
+    "owner": "Skullman",
+    "notes": "Guardian Remains",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Mysterious Grave",
+    "x": 205,
+    "y": 69,
+    "z": -280,
+    "category": "Other",
+    "owner": "Elena",
+    "notes": "Trail of blood(?) leading to Cloud & Vamp’s Spot",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Manual Spider Farm",
+    "x": -1183,
+    "y": 61,
+    "z": -978,
+    "category": "Farm",
+    "owner": "Bomberbird",
+    "notes": "All items flow up the bubble elevator into the chest above, so no immediate pickup is needed. If you take items from the chest, please inform the owner.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Poppies Iron Farm & Trading Hall",
+    "x": -5,
+    "y": 70,
+    "z": -876,
+    "category": "Farm",
+    "owner": "The Auld Witch",
+    "notes": "Iron farm with attached trading hall.",
+    "dimension": "Overworld"
+  }
 ]

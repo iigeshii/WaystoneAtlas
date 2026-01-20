@@ -1,30 +1,25 @@
-console.log("Waystone Atlas loaded");
+console.log("Waystone Atlas v2 loaded");
 
 // -----------------------------
 // CONFIG
 // -----------------------------
 
-// Minecraft bounds from Mapee "Visible areas"
-const WORLD_BOUNDS = {
-  minX: -5159,
-  maxX:  5157,
-  minZ: -2611,
-  maxZ:  2609,
+// IMPORTANT: Replace Nether bounds with your Mapee "Visible areas" once you export the nether image.
+// Overworld bounds are from your message.
+const MAPS = {
+  Overworld: {
+    image: "world.jpg",
+    bounds: { minX: -5159, maxX: 5157, minZ: -2611, maxZ: 2609 }
+  },
+  Nether: {
+    image: "nether.jpg",
+    // PLACEHOLDER DEFAULTS — update these to match your exported nether image visible area.
+    bounds: { minX: -2289, maxX: 2287, minZ: -1159, maxZ: 1157 }
+  }
 };
 
-// Map image (kept generic on purpose)
-const IMAGE_URL = "world.jpg";
-
-// Category display order + headings (matches your format)
-const CATEGORY_ORDER = [
-  "Base",
-  "Community Feature",
-  "Farm",
-  "Other",
-  "Portal",
-  "Shop",
-];
-
+// Category order + headers (matches your TOC style)
+const CATEGORY_ORDER = ["Base", "Community Feature", "Farm", "Other", "Portal", "Shop"];
 const CATEGORY_LABELS = {
   "Base": "🏠 BASES",
   "Community Feature": "🐴 COMMUNITY FEATURES",
@@ -35,7 +30,7 @@ const CATEGORY_LABELS = {
 };
 
 // -----------------------------
-// MAP SETUP
+// LEAFLET SETUP
 // -----------------------------
 
 const map = L.map("map", {
@@ -44,58 +39,166 @@ const map = L.map("map", {
   zoom: -2,
 });
 
-// Leaflet expects [y, x]. We treat that as [Z, X].
-// Fix north/south inversion by negating Z.
+// Leaflet expects [y, x]. We use [(-Z), X] so north/south matches Minecraft intuition.
 function mcToLatLng(x, z) {
   return [-z, x];
 }
 
-const southWest = mcToLatLng(WORLD_BOUNDS.minX, WORLD_BOUNDS.minZ);
-const northEast = mcToLatLng(WORLD_BOUNDS.maxX, WORLD_BOUNDS.maxZ);
-const bounds = L.latLngBounds(southWest, northEast);
+// Layers we can clear/rebuild per map
+let imageOverlay = null;
+const poiLayer = L.layerGroup().addTo(map);
+const pathLayer = L.layerGroup().addTo(map);
 
-L.imageOverlay(IMAGE_URL, bounds).addTo(map);
-map.fitBounds(bounds);
-map.setMaxBounds(bounds);
+// Cached data
+let allPois = [];
+let allPaths = [];
+
+// UI
+const mapSelect = document.getElementById("map-select");
+const searchInput = document.getElementById("search");
+const listEl = document.getElementById("poi-list");
+
+let currentDimension = mapSelect.value || "Overworld";
+let currentSearch = "";
 
 // -----------------------------
-// LOAD POIS
+// LOAD DATA
 // -----------------------------
 
-fetch("pois.json")
-  .then(r => {
-    if (!r.ok) throw new Error("pois.json not found or unreadable");
-    return r.json();
-  })
-  .then(pois => renderPOIs(pois))
-  .catch(err => {
-    console.error(err);
-    alert("Failed to load POIs. Check data/pois.json and run via http://localhost:8000/web/");
+Promise.all([
+  fetch("pois.json").then(r => r.ok ? r.json() : Promise.reject(new Error("pois.json not found"))),
+  fetch("paths.json").then(r => r.ok ? r.json() : Promise.reject(new Error("paths.json not found"))),
+]).then(([pois, paths]) => {
+  allPois = Array.isArray(pois) ? pois : [];
+  allPaths = Array.isArray(paths) ? paths : [];
+
+  wireUI();
+  renderAll();
+}).catch(err => {
+  console.error(err);
+  alert("Failed to load pois.json or paths.json. Make sure they are in the repo root and you are using a web server.");
+});
+
+// -----------------------------
+// UI
+// -----------------------------
+
+function wireUI() {
+  mapSelect.value = currentDimension;
+
+  mapSelect.addEventListener("change", () => {
+    currentDimension = mapSelect.value;
+    renderAll();
   });
+
+  searchInput.addEventListener("input", () => {
+    currentSearch = searchInput.value.trim().toLowerCase();
+    renderAllDirectoryOnly();
+  });
+}
 
 // -----------------------------
 // RENDER
 // -----------------------------
 
-function renderPOIs(pois) {
-  // Create markers first, group directory entries second
-  const list = document.getElementById("poi-list");
-  list.innerHTML = "";
+function renderAll() {
+  renderBaseMap();
+  renderPOIs();
+  renderPaths();
+  renderDirectory();
+}
 
-  // Group POIs by category
+function renderBaseMap() {
+  const cfg = MAPS[currentDimension];
+  if (!cfg) return;
+
+  // remove old overlay
+  if (imageOverlay) {
+    map.removeLayer(imageOverlay);
+    imageOverlay = null;
+  }
+
+  const b = cfg.bounds;
+  const southWest = mcToLatLng(b.minX, b.minZ);
+  const northEast = mcToLatLng(b.maxX, b.maxZ);
+  const bounds = L.latLngBounds(southWest, northEast);
+
+  imageOverlay = L.imageOverlay(cfg.image, bounds).addTo(map);
+
+  // optional "crisper" scaling
+  // map.getPane("overlayPane").style.imageRendering = "pixelated";
+
+  map.fitBounds(bounds);
+  map.setMaxBounds(bounds);
+}
+
+function renderPOIs() {
+  poiLayer.clearLayers();
+
+  visiblePois().forEach(p => {
+    const pos = mcToLatLng(p.x, p.z);
+
+    const marker = L.circleMarker(pos, {
+      radius: 6,
+      color: "#7b1e2b",
+      fillColor: "#c03a4a",
+      fillOpacity: 0.9,
+      weight: 1,
+    }).addTo(poiLayer);
+
+    marker.bindPopup(buildPopupHtml(p));
+
+    // stash marker reference for directory clicks
+    p.__marker = marker;
+    p.__pos = pos;
+  });
+}
+
+function renderPaths() {
+  pathLayer.clearLayers();
+
+  // Only draw paths matching current dimension (Nether highways, etc.)
+  allPaths
+    .filter(p => normalizeDimension(p.dimension) === currentDimension)
+    .forEach(p => {
+      const from = p.from || {};
+      const to = p.to || {};
+      if (!isNum(from.x) || !isNum(from.z) || !isNum(to.x) || !isNum(to.z)) return;
+
+      const line = L.polyline(
+        [mcToLatLng(from.x, from.z), mcToLatLng(to.x, to.z)],
+        {
+          weight: 3,
+          opacity: 0.9,
+          // Keep it simple. If you want “highway glow”, we can style later.
+        }
+      ).addTo(pathLayer);
+
+      if (p.name || p.notes) {
+        line.bindPopup(`
+          <strong>${escapeHtml(p.name ?? "Path")}</strong><br/>
+          ${p.type ? `<em>${escapeHtml(p.type)}</em><br/>` : ""}
+          ${p.notes ? `<div style="margin-top:6px">${escapeHtml(p.notes)}</div>` : ""}
+          <div style="margin-top:6px">From: ${from.x}, ${from.z} → To: ${to.x}, ${to.z}</div>
+        `);
+      }
+    });
+}
+
+function renderDirectory() {
+  listEl.innerHTML = "";
+
+  // Group visible POIs by category
   const groups = {};
-  pois.forEach(p => {
+  visiblePois().forEach(p => {
     const cat = normalizeCategory(p.category);
     groups[cat] ??= [];
     groups[cat].push(p);
   });
 
-  // Sort POIs within each category by name
-  Object.values(groups).forEach(arr => {
-    arr.sort((a, b) => String(a.name ?? "").localeCompare(String(b.name ?? "")));
-  });
+  // Sort within categories
+  Object.values(groups).forEach(arr => arr.sort((a, b) => String(a.name ?? "").localeCompare(String(b.name ?? ""))));
 
-  // Render categories in preferred order, then any extras
   const orderedCats = [
     ...CATEGORY_ORDER,
     ...Object.keys(groups).filter(c => !CATEGORY_ORDER.includes(c)).sort(),
@@ -105,71 +208,68 @@ function renderPOIs(pois) {
     const items = groups[cat];
     if (!items || items.length === 0) return;
 
-    // Category header
     const header = document.createElement("li");
-    header.textContent = CATEGORY_LABELS[cat] ?? cat.toUpperCase();
     header.className = "dir-header";
-    list.appendChild(header);
+    header.textContent = CATEGORY_LABELS[cat] ?? cat.toUpperCase();
+    listEl.appendChild(header);
 
-    // Items under category
     items.forEach(p => {
-      const pos = mcToLatLng(p.x, p.z);
+      // search filter (directory only)
+      if (currentSearch) {
+        const hay = `${p.name ?? ""} ${p.owner ?? ""} ${p.notes ?? ""}`.toLowerCase();
+        if (!hay.includes(currentSearch)) return;
+      }
 
-      // Marker
-      const marker = L.circleMarker(pos, {
-        radius: 6,
-        color: "#7b1e2b",
-        fillColor: "#c03a4a",
-        fillOpacity: 0.9,
-        weight: 1,
-      }).addTo(map);
-
-      marker.bindPopup(buildPopupHtml(p));
-
-      // Directory entry
       const li = document.createElement("li");
       li.className = "dir-item";
-      li.textContent = "– " + (p.name ?? "(Unnamed)");
-      li.onclick = () => {
-        map.setView(pos, Math.max(map.getZoom(), -1));
-        marker.openPopup();
-      };
+      li.innerHTML = `
+        ${escapeHtml("– " + (p.name ?? "(Unnamed)"))}
+        <span class="sub">${escapeHtml(`${p.x}, ${p.y}, ${p.z}`)}${p.owner ? ` • ${escapeHtml(p.owner)}` : ""}</span>
+      `;
 
-      list.appendChild(li);
+      li.addEventListener("click", () => {
+        if (!p.__pos || !p.__marker) return;
+        map.setView(p.__pos, Math.max(map.getZoom(), -1));
+        p.__marker.openPopup();
+      });
+
+      listEl.appendChild(li);
     });
   });
 }
 
+// If only search changed, don’t rebuild markers/paths/map
+function renderAllDirectoryOnly() {
+  renderDirectory();
+}
+
 // -----------------------------
-// HELPERS
+// DATA FILTERING
 // -----------------------------
 
-function buildPopupHtml(p) {
-  const name = escapeHtml(p.name);
-  const cat = escapeHtml(normalizeCategory(p.category));
-  const owner = p.owner ? `<div><strong>Owner:</strong> ${escapeHtml(p.owner)}</div>` : "";
-  const notes = p.notes ? `<div style="margin-top:6px">${escapeHtml(p.notes)}</div>` : "";
+function visiblePois() {
+  return allPois
+    .map(p => ({
+      ...p,
+      dimension: normalizeDimension(p.dimension),
+      category: normalizeCategory(p.category),
+    }))
+    .filter(p => p.dimension === currentDimension);
+}
 
-  // Coordinates (Minecraft XYZ)
-  const coords = `XYZ: ${p.x}, ${p.y}, ${p.z}`;
-
-  return `
-    <strong>${name}</strong><br/>
-    <em>${cat}</em><br/>
-    ${coords}
-    ${owner}
-    ${notes}
-  `;
+function normalizeDimension(d) {
+  const v = String(d ?? "").trim().toLowerCase();
+  if (!v) return "Overworld";
+  if (v.startsWith("nether")) return "Nether";
+  if (v.startsWith("over")) return "Overworld";
+  return d;
 }
 
 function normalizeCategory(category) {
   const c = String(category ?? "").trim();
-
-  // If you keep categories consistent you won’t need this,
-  // but it helps prevent small variations from splitting groups.
-  const lowered = c.toLowerCase();
-
   if (!c) return "Other";
+
+  const lowered = c.toLowerCase();
   if (lowered === "bases" || lowered === "base") return "Base";
   if (lowered.includes("community")) return "Community Feature";
   if (lowered === "farm" || lowered === "farms") return "Farm";
@@ -177,8 +277,26 @@ function normalizeCategory(category) {
   if (lowered === "shop" || lowered === "shops") return "Shop";
   if (lowered === "other") return "Other";
 
-  // Unknown categories are allowed (they’ll appear after the ordered ones)
+  // allow custom categories
   return c;
+}
+
+// -----------------------------
+// POPUPS / HELPERS
+// -----------------------------
+
+function buildPopupHtml(p) {
+  const owner = p.owner ? `<div><strong>Owner:</strong> ${escapeHtml(p.owner)}</div>` : "";
+  const notes = p.notes ? `<div style="margin-top:6px">${escapeHtml(p.notes)}</div>` : "";
+
+  return `
+    <strong>${escapeHtml(p.name ?? "(Unnamed)")}</strong><br/>
+    <em>${escapeHtml(p.category ?? "")}</em><br/>
+    <div>XYZ: ${p.x}, ${p.y}, ${p.z}</div>
+    <div><strong>Dimension:</strong> ${escapeHtml(p.dimension)}</div>
+    ${owner}
+    ${notes}
+  `;
 }
 
 function escapeHtml(v) {
@@ -186,4 +304,8 @@ function escapeHtml(v) {
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+}
+
+function isNum(v) {
+  return typeof v === "number" && Number.isFinite(v);
 }
