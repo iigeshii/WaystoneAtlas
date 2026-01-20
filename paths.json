@@ -18,7 +18,7 @@
         "dimension": "Nether",
         "kind": "nether_path",
         "from": {
-            "x": 0,
+            "x": 1,
             "z": 139
         },
         "to": {
@@ -32,7 +32,7 @@
         "dimension": "Nether",
         "kind": "nether_path",
         "from": {
-            "x": 0,
+            "x": 1,
             "z": 139
         },
         "to": {
@@ -46,7 +46,7 @@
         "dimension": "Nether",
         "kind": "nether_path",
         "from": {
-            "x": 0,
+            "x": 1,
             "z": 184
         },
         "to": {
@@ -60,7 +60,7 @@
         "dimension": "Nether",
         "kind": "nether_path",
         "from": {
-            "x": 0,
+            "x": 1,
             "z": 195
         },
         "to": {
@@ -75,7 +75,7 @@
         "kind": "nether_path",
         "from": {
             "x": 391,
-            "z": 0
+            "z": 195
         },
         "to": {
             "x": 391,
@@ -102,7 +102,7 @@
         "kind": "nether_path",
         "from": {
             "x": 1000,
-            "z": 0
+            "z": 1
         },
         "to": {
             "x": 1280,
@@ -128,7 +128,7 @@
         "kind": "nether_path",
         "from": {
             "x": 1185,
-            "z": 0
+            "z": 1
         },
         "to": {
             "x": 1185,
@@ -142,7 +142,7 @@
         "kind": "nether_path",
         "from": {
             "x": 1000,
-            "z": 0
+            "z": 1
         },
         "to": {
             "x": 1000,
@@ -156,12 +156,92 @@
         "kind": "nether_path",
         "from": {
             "x": 822,
-            "z": 0
+            "z": 1
         },
         "to": {
             "x": 822,
             "z": 254
         },
         "notes": "Nether pathway leading to a Bastion Remnant."
+    },
+    {
+        "name": "Ice Path to Suwa Base Portal",
+        "dimension": "Nether",
+        "kind": "ice_rail",
+        "from": {
+            "x": 630,
+            "z": 0
+        },
+        "to": {
+            "x": 630,
+            "z": -95
+        }
+    },
+    {
+        "name": "Suwa Base Corridor",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 630,
+            "z": -95
+        },
+        "to": {
+            "x": 630,
+            "z": -297
+        }
+    },
+    {
+        "name": "Suwa Old Base Branch",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 630,
+            "z": -206
+        },
+        "to": {
+            "x": 190,
+            "z": -206
+        }
+    },
+    {
+        "name": "Suwa Corridor Extension",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 188,
+            "z": -208
+        },
+        "to": {
+            "x": 0,
+            "z": -207
+        }
+    },
+    {
+        "name": "Ice Rail to Ruined Portal",
+        "dimension": "Nether",
+        "kind": "ice_rail",
+        "from": {
+            "x": 419,
+            "z": 0
+        },
+        "to": {
+            "x": 419,
+            "z": 257
+        },
+        "notes": "Ice railway leading to the restored ruined portal."
+    },
+    {
+        "name": "Path to Cloud Base Portal",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 566,
+            "z": 1
+        },
+        "to": {
+            "x": 566,
+            "z": 123
+        },
+        "notes": "Nether pathway leading to Cloud Base portal."
     }
 ]
