@@ -168,7 +168,7 @@
     "notes": "Overworld gold farm.",
     "dimension": "Overworld"
   },
-    {
+  {
     "name": "Emsi1y’s Base Portal",
     "x": 160,
     "y": 14,
@@ -247,8 +247,55 @@
     "owner": "The Auld Witch",
     "notes": "Froglight farm.",
     "dimension": "Nether"
+  },
+  {
+    "name": "Nether Scrap Blast Zone",
+    "x": 1185,
+    "y": 14,
+    "z": 83,
+    "category": "Other",
+    "owner": "Community",
+    "notes": "Designated nether scrap blasting / mining area.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Sandstone Pit Portal",
+    "x": 1000,
+    "y": 14,
+    "z": 536,
+    "category": "Portal",
+    "owner": "Unknown",
+    "notes": "Portal to underground cave with pathway up to sandstone pit.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Sandstone Pit Portal",
+    "x": 7987,
+    "y": 63,
+    "z": 4307,
+    "category": "Portal",
+    "owner": "Unknown",
+    "notes": "Overworld portal connected to sandstone pit.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Sandstone Pit",
+    "x": 7987,
+    "y": 63,
+    "z": 4307,
+    "category": "Other",
+    "owner": "Unknown",
+    "notes": "Sandstone mining pit accessed from underground cave.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Bastion Remnant",
+    "x": 822,
+    "y": 38,
+    "z": 254,
+    "category": "Other",
+    "owner": "N/A",
+    "notes": "Bastion Remnant — Piglin Brutes spawn here.",
+    "dimension": "Nether"
   }
-
-
-
 ]

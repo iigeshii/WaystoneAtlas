@@ -1,72 +1,167 @@
 [
     {
-    "name": "South Nether Highway",
-    "dimension": "Nether",
-    "kind": "ice_rail",
-    "from": { "x": 0, "z": 0 },
-    "to":   { "x": 0, "z": 800 },
-    "notes": "Warden Highway."
+        "name": "South Nether Highway",
+        "dimension": "Nether",
+        "kind": "ice_rail",
+        "from": {
+            "x": 0,
+            "z": 0
+        },
+        "to": {
+            "x": 0,
+            "z": 800
+        },
+        "notes": "Warden Highway."
     },
     {
         "name": "Emsi1y's Gold Farm Path",
         "dimension": "Nether",
         "kind": "nether_path",
-        "from": { "x": 0, "z": 139 },
-        "to":   { "x": 242, "z": 139 },
+        "from": {
+            "x": 0,
+            "z": 139
+        },
+        "to": {
+            "x": 242,
+            "z": 139
+        },
         "notes": "Nether pathway to Emily’s Gold Farm."
     },
     {
         "name": "Abandoned Tunnel",
         "dimension": "Nether",
         "kind": "nether_path",
-        "from": { "x": 0, "z": 139 },
-        "to":   { "x": -36, "z": 139 },
+        "from": {
+            "x": 0,
+            "z": 139
+        },
+        "to": {
+            "x": -36,
+            "z": 139
+        },
         "notes": "Abandoned nether tunnel segment."
     },
     {
         "name": "Path to Emsi1y’s Base",
         "dimension": "Nether",
         "kind": "nether_path",
-        "from": { "x": 0, "z": 184 },
-        "to":   { "x": 160, "z": 184 },
+        "from": {
+            "x": 0,
+            "z": 184
+        },
+        "to": {
+            "x": 160,
+            "z": 184
+        },
         "notes": "Nether pathway leading toward Emsi1y’s base portal."
     },
-     {
-    "name": "Path to Pillager Outpost Portal",
-    "dimension": "Nether",
-    "kind": "nether_path",
-    "from": { "x": 0, "z": 195 },
-    "to":   { "x": 391, "z": 195 },
-    "notes": "Nether pathway toward Pillager Outpost portal."
-  },
-  {
-    "name": "Path to Pillager Outpost Portal",
-    "dimension": "Nether",
-    "kind": "nether_path",
-    "from": { "x": 391, "z": 0 },
-    "to":   { "x": 391, "z": 218 },
-    "notes": "Final approach to Pillager Outpost portal."
-  },
-  {
-    "name": "Main Ice Railway (0,0 → 1000,0)",
-    "dimension": "Nether",
-    "kind": "ice_rail",
-    "from": { "x": 0, "z": 0 },
-    "to":   { "x": 1000, "z": 0 }
-  },
-  {
-    "name": "Main Pathway (1000,0 → 1280,0)",
-    "dimension": "Nether",
-    "kind": "nether_path",
-    "from": { "x": 1000, "z": 0 },
-    "to":   { "x": 1280, "z": 0 }
-  },
-  {
-    "name": "Main Pathway (1280,0 → 1280,-264)",
-    "dimension": "Nether",
-    "kind": "nether_path",
-    "from": { "x": 1280, "z": 0 },
-    "to":   { "x": 1280, "z": -264 }
-  }
-
+    {
+        "name": "Path to Pillager Outpost Portal",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 0,
+            "z": 195
+        },
+        "to": {
+            "x": 391,
+            "z": 195
+        },
+        "notes": "Nether pathway toward Pillager Outpost portal."
+    },
+    {
+        "name": "Path to Pillager Outpost Portal",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 391,
+            "z": 0
+        },
+        "to": {
+            "x": 391,
+            "z": 218
+        },
+        "notes": "Final approach to Pillager Outpost portal."
+    },
+    {
+        "name": "Main Ice Railway (0,0 → 1000,0)",
+        "dimension": "Nether",
+        "kind": "ice_rail",
+        "from": {
+            "x": 0,
+            "z": 0
+        },
+        "to": {
+            "x": 1000,
+            "z": 0
+        }
+    },
+    {
+        "name": "Main Pathway (1000,0 → 1280,0)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 1000,
+            "z": 0
+        },
+        "to": {
+            "x": 1280,
+            "z": 0
+        }
+    },
+    {
+        "name": "Main Pathway (1280,0 → 1280,-264)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 1280,
+            "z": 0
+        },
+        "to": {
+            "x": 1280,
+            "z": -264
+        }
+    },
+    {
+        "name": "Scrap Blast Zone Path",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 1185,
+            "z": 0
+        },
+        "to": {
+            "x": 1185,
+            "z": 83
+        },
+        "notes": "Pathway leading to the Nether Scrap Blast Zone."
+    },
+    {
+        "name": "Path to Sandstone Pit Portal",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 1000,
+            "z": 0
+        },
+        "to": {
+            "x": 1000,
+            "z": 536
+        },
+        "notes": "Nether pathway leading to portal for underground cave and sandstone pit."
+    },
+    {
+        "name": "Path to Bastion",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 822,
+            "z": 0
+        },
+        "to": {
+            "x": 822,
+            "z": 254
+        },
+        "notes": "Nether pathway leading to a Bastion Remnant."
+    }
 ]
