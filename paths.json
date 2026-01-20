@@ -1,18 +1,50 @@
 [
-  {
+    {
     "name": "South Nether Highway",
     "dimension": "Nether",
-    "type": "Highway",
+    "kind": "ice_rail",
     "from": { "x": 0, "z": 0 },
     "to":   { "x": 0, "z": 800 },
     "notes": "Warden Highway."
+    },
+    {
+        "name": "Emsi1y's Gold Farm Path",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": { "x": 0, "z": 139 },
+        "to":   { "x": 242, "z": 139 },
+        "notes": "Nether pathway to Emily’s Gold Farm."
+    },
+    {
+        "name": "Abandoned Tunnel",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": { "x": 0, "z": 139 },
+        "to":   { "x": -36, "z": 139 },
+        "notes": "Abandoned nether tunnel segment."
+    },
+    {
+        "name": "Path to Emsi1y’s Base",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": { "x": 0, "z": 184 },
+        "to":   { "x": 160, "z": 184 },
+        "notes": "Nether pathway leading toward Emsi1y’s base portal."
+    },
+     {
+    "name": "Path to Pillager Outpost Portal",
+    "dimension": "Nether",
+    "kind": "nether_path",
+    "from": { "x": 0, "z": 195 },
+    "to":   { "x": 391, "z": 195 },
+    "notes": "Nether pathway toward Pillager Outpost portal."
   },
   {
-    "name": "Spawn Hub East–West",
+    "name": "Path to Pillager Outpost Portal",
     "dimension": "Nether",
-    "type": "Highway",
-    "from": { "x": -1000, "z": 0 },
-    "to":   { "x":  1000, "z": 0 },
-    "notes": "Example line — edit to match your actual highways."
+    "kind": "nether_path",
+    "from": { "x": 391, "z": 0 },
+    "to":   { "x": 391, "z": 218 },
+    "notes": "Final approach to Pillager Outpost portal."
   }
 ]

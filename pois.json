@@ -117,5 +117,128 @@
     "owner": "The Auld Witch",
     "notes": "Iron farm with attached trading hall.",
     "dimension": "Overworld"
+  },
+  {
+    "name": "Nether Construction Materials Room",
+    "x": -7,
+    "y": 14,
+    "z": 73,
+    "category": "Other",
+    "owner": "Community",
+    "notes": "Shared nether construction materials storage room.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Skull Base Portal",
+    "x": -11,
+    "y": 14,
+    "z": 102,
+    "category": "Portal",
+    "owner": "Skullman",
+    "notes": "Nether-side portal for Skull Base.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Gold Farm Portal",
+    "x": 242,
+    "y": 14,
+    "z": 139,
+    "category": "Portal",
+    "owner": "emsi1y2255",
+    "notes": "Nether portal for Emily’s Gold Farm.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Gold Farm Portal",
+    "x": 1949,
+    "y": 76,
+    "z": 1118,
+    "category": "Portal",
+    "owner": "Emily",
+    "notes": "Overworld portal linked to Emily’s Gold Farm.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Gold Farm",
+    "x": 1957,
+    "y": 113,
+    "z": 1115,
+    "category": "Farm",
+    "owner": "emsi1y2255",
+    "notes": "Overworld gold farm.",
+    "dimension": "Overworld"
+  },
+    {
+    "name": "Emsi1y’s Base Portal",
+    "x": 160,
+    "y": 14,
+    "z": 184,
+    "category": "Portal",
+    "owner": "emsi1y2255",
+    "notes": "Nether-side portal leading to emsi1y’s base.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Emsi1y’s Base",
+    "x": 1224,
+    "y": 72,
+    "z": 1356,
+    "category": "Base",
+    "owner": "emsi1y2255",
+    "notes": "Main overworld base for emsi1y.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Emsi1y’s Base Portal",
+    "x": 1292,
+    "y": 109,
+    "z": 1476,
+    "category": "Portal",
+    "owner": "emsi1y2255",
+    "notes": "Overworld portal connected to emsi1y’s nether route.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Skeleton Farm",
+    "x": 1071,
+    "y": 63,
+    "z": 1292,
+    "category": "Farm",
+    "owner": "emsi1y2255",
+    "notes": "Skeleton farm near emsi1y’s base.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Pillager Outpost Portal",
+    "x": 391,
+    "y": 14,
+    "z": 218,
+    "category": "Portal",
+    "owner": "Flameboi",
+    "notes": "Nether portal leading to Pillager Outpost farm.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Pillager Outpost Portal",
+    "x": 3125,
+    "y": 88,
+    "z": 1750,
+    "category": "Portal",
+    "owner": "Flameboi",
+    "notes": "Overworld portal connected to Pillager Outpost farm.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Pillager Outpost Farm",
+    "x": 3146,
+    "y": 100,
+    "z": 1751,
+    "category": "Farm",
+    "owner": "Flameboi",
+    "notes": "Pillager Outpost farm for Bad Omen / ominous-related farming.",
+    "dimension": "Overworld"
   }
+
+
+
 ]

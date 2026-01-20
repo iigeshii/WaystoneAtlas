@@ -46,7 +46,7 @@ header {
 }
 
 #directory {
-  width: 340px;
+  width: 360px;
   border-right: 1px solid #ccc;
   padding: 10px;
   overflow-y: auto;
@@ -65,7 +65,7 @@ header {
 }
 
 .dir-header {
-  font-weight: 800;
+  font-weight: 900;
   margin-top: 12px;
   padding: 8px 8px 6px 8px;
   cursor: default;
