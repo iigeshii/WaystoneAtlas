@@ -237,6 +237,16 @@
     "owner": "Flameboi",
     "notes": "Pillager Outpost farm for Bad Omen / ominous-related farming.",
     "dimension": "Overworld"
+  },
+  {
+    "name": "Froglight Farm",
+    "x": 1262,
+    "y": 29,
+    "z": -254,
+    "category": "Farm",
+    "owner": "The Auld Witch",
+    "notes": "Froglight farm.",
+    "dimension": "Nether"
   }
 
 

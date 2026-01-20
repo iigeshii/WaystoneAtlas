@@ -3,10 +3,6 @@ console.log("Waystone Atlas loaded");
 // -----------------------------
 // MAP CONFIG
 // -----------------------------
-//
-// Overworld bounds are your Mapee visible area.
-// Nether bounds are placeholders—update once you export the nether map and get its "Visible areas".
-//
 const MAPS = {
   Overworld: {
     image: "world.jpg",
@@ -30,9 +26,6 @@ const CATEGORY_LABELS = {
   "Shop": "🛒 SHOPS",
 };
 
-// Path labels (optional)
-const PATHS_HEADER = "🧭 PATHS";
-
 // -----------------------------
 // LEAFLET SETUP
 // -----------------------------
@@ -42,18 +35,18 @@ const map = L.map("map", {
   zoom: -2,
 });
 
-// Leaflet expects [y, x]. Use [-Z, X] so north/south matches Minecraft intuition.
+// Convert Minecraft coords → Leaflet coords
 function mcToLatLng(x, z) {
   return [-z, x];
 }
 
-// Layers (easy to clear & redraw)
+// Layers
 let imageOverlay = null;
 const poiLayer = L.layerGroup().addTo(map);
 const pathLayer = L.layerGroup().addTo(map);
 
-// Marker index (FIX): directory clicks look up markers here (no stale references)
-const poiMarkers = new Map(); // key: "x,z" -> Leaflet marker
+// Marker index (prevents stale references)
+const poiMarkers = new Map(); // key: "x,z" -> marker
 
 // Data
 let allPois = [];
@@ -71,8 +64,8 @@ let currentSearch = "";
 // LOAD DATA
 // -----------------------------
 Promise.all([
-  fetch("pois.json").then(r => r.ok ? r.json() : Promise.reject(new Error("pois.json not found"))),
-  fetch("paths.json").then(r => r.ok ? r.json() : Promise.reject(new Error("paths.json not found")))
+  fetch("pois.json").then(r => r.json()),
+  fetch("paths.json").then(r => r.json())
 ]).then(([pois, paths]) => {
   allPois = Array.isArray(pois) ? pois : [];
   allPaths = Array.isArray(paths) ? paths : [];
@@ -81,7 +74,7 @@ Promise.all([
   renderAll();
 }).catch(err => {
   console.error(err);
-  alert("Failed to load pois.json or paths.json. Make sure you are running via a web server (python -m http.server).");
+  alert("Failed to load pois.json or paths.json");
 });
 
 // -----------------------------
@@ -97,7 +90,7 @@ function wireUI() {
 
   searchInput.addEventListener("input", () => {
     currentSearch = searchInput.value.trim().toLowerCase();
-    renderDirectory(); // directory-only refresh on search
+    renderDirectory();
   });
 }
 
@@ -115,10 +108,7 @@ function renderBaseMap() {
   const cfg = MAPS[currentDimension];
   if (!cfg) return;
 
-  if (imageOverlay) {
-    map.removeLayer(imageOverlay);
-    imageOverlay = null;
-  }
+  if (imageOverlay) map.removeLayer(imageOverlay);
 
   const b = cfg.bounds;
   const bounds = L.latLngBounds(
@@ -127,10 +117,6 @@ function renderBaseMap() {
   );
 
   imageOverlay = L.imageOverlay(cfg.image, bounds).addTo(map);
-
-  // Optional: pixel-ish scaling (try it; some prefer default smoothing)
-  // map.getPane("overlayPane").style.imageRendering = "pixelated";
-
   map.fitBounds(bounds);
   map.setMaxBounds(bounds);
 }
@@ -139,8 +125,7 @@ function renderPOIs() {
   poiLayer.clearLayers();
   poiMarkers.clear();
 
-  const pois = visiblePois();
-  pois.forEach(p => {
+  visiblePois().forEach(p => {
     const pos = mcToLatLng(p.x, p.z);
 
     const marker = L.circleMarker(pos, {
@@ -151,41 +136,39 @@ function renderPOIs() {
       weight: 1,
     }).addTo(poiLayer);
 
-    marker.bindPopup(buildPoiPopupHtml(p));
+    marker.bindPopup(buildPoiPopup(p));
 
-    // Keyed by x,z (y doesn't matter for map placement)
-    const key = `${p.x},${p.z}`;
-    poiMarkers.set(key, marker);
+    poiMarkers.set(`${p.x},${p.z}`, marker);
   });
 }
 
 function renderPaths() {
   pathLayer.clearLayers();
 
-  const paths = visiblePaths();
-  paths.forEach(p => {
-    const from = p.from || {};
-    const to = p.to || {};
+  visiblePaths().forEach(p => {
+    const { from, to } = p;
+    if (!isNum(from?.x) || !isNum(from?.z) || !isNum(to?.x) || !isNum(to?.z)) return;
 
-    if (!isNum(from.x) || !isNum(from.z) || !isNum(to.x) || !isNum(to.z)) return;
+    // glow
+    L.polyline(
+      [mcToLatLng(from.x, from.z), mcToLatLng(to.x, to.z)],
+      { ...pathStyle(p), weight: 8, opacity: 0.25 }
+    ).addTo(pathLayer);
 
-    const line = L.polyline(
+    // main line
+    L.polyline(
       [mcToLatLng(from.x, from.z), mcToLatLng(to.x, to.z)],
       pathStyle(p)
     ).addTo(pathLayer);
-
-    line.bindPopup(buildPathPopupHtml(p));
-
-    // store refs for directory clicks
-    p.__line = line;
-    p.__mid = mcToLatLng((from.x + to.x) / 2, (from.z + to.z) / 2);
   });
 }
 
+// -----------------------------
+// DIRECTORY (POIs ONLY — NO PATHS)
+// -----------------------------
 function renderDirectory() {
   listEl.innerHTML = "";
 
-  // ---------- POIs grouped ----------
   const groups = {};
   visiblePois().forEach(p => {
     const cat = normalizeCategory(p.category);
@@ -193,18 +176,18 @@ function renderDirectory() {
     groups[cat].push(p);
   });
 
-  Object.values(groups).forEach(arr => {
-    arr.sort((a, b) => String(a.name ?? "").localeCompare(String(b.name ?? "")));
-  });
+  Object.values(groups).forEach(arr =>
+    arr.sort((a, b) => String(a.name).localeCompare(String(b.name)))
+  );
 
   const orderedCats = [
     ...CATEGORY_ORDER,
-    ...Object.keys(groups).filter(c => !CATEGORY_ORDER.includes(c)).sort(),
+    ...Object.keys(groups).filter(c => !CATEGORY_ORDER.includes(c)).sort()
   ];
 
   orderedCats.forEach(cat => {
     const items = groups[cat];
-    if (!items || items.length === 0) return;
+    if (!items?.length) return;
 
     const header = document.createElement("li");
     header.className = "dir-header";
@@ -217,16 +200,13 @@ function renderDirectory() {
       const li = document.createElement("li");
       li.className = "dir-item";
       li.innerHTML = `
-        ${escapeHtml("– " + (p.name ?? "(Unnamed)"))}
-        <span class="sub">${escapeHtml(`${p.x}, ${p.y}, ${p.z}`)}${p.owner ? ` • ${escapeHtml(p.owner)}` : ""}</span>
+        ${escapeHtml("- " + p.name)}
+        <span class="sub">${escapeHtml(`${p.x}, ${p.y}, ${p.z}`)}${p.owner ? ` | ${escapeHtml(p.owner)}` : ""}</span>
       `;
 
-      // FIX: look up marker at click time (no stale references)
       li.addEventListener("click", () => {
-        const key = `${p.x},${p.z}`;
-        const marker = poiMarkers.get(key);
+        const marker = poiMarkers.get(`${p.x},${p.z}`);
         if (!marker) return;
-
         map.setView(marker.getLatLng(), Math.max(map.getZoom(), -1));
         marker.openPopup();
       });
@@ -234,148 +214,67 @@ function renderDirectory() {
       listEl.appendChild(li);
     });
   });
-
-  // ---------- PATHS section ----------
-  // const paths = visiblePaths()
-  //   .slice()
-  //   .sort((a, b) => String(a.name ?? "").localeCompare(String(b.name ?? "")));
-
-  // const anyVisiblePaths = paths.some(p => passesSearch(p));
-  // if (anyVisiblePaths) {
-  //   const header = document.createElement("li");
-  //   header.className = "dir-header";
-  //   header.textContent = PATHS_HEADER;
-  //   listEl.appendChild(header);
-
-  //   paths.forEach(p => {
-  //     if (!passesSearch(p)) return;
-
-  //     const kindLabel = friendlyPathKind(p.kind);
-  //     const li = document.createElement("li");
-  //     li.className = "dir-item";
-  //     li.innerHTML = `
-  //       ${escapeHtml("– " + (p.name ?? "Path"))}
-  //       <span class="sub">${escapeHtml(kindLabel)}</span>
-  //     `;
-
-  //     li.addEventListener("click", () => {
-  //       if (p.__mid) map.setView(p.__mid, Math.max(map.getZoom(), -1));
-  //       if (p.__line) p.__line.openPopup();
-  //     });
-
-  //     listEl.appendChild(li);
-  //   });
-  // }
 }
 
 // -----------------------------
-// FILTERING
+// FILTERING / NORMALIZATION
 // -----------------------------
 function visiblePois() {
   return allPois
-    .map(p => ({
-      ...p,
-      dimension: normalizeDimension(p.dimension),
-      category: normalizeCategory(p.category),
-    }))
+    .map(p => ({ ...p, dimension: normalizeDimension(p.dimension) }))
     .filter(p => p.dimension === currentDimension);
 }
 
 function visiblePaths() {
   return allPaths
-    .map(p => ({
-      ...p,
-      dimension: normalizeDimension(p.dimension),
-      kind: normalizePathKind(p.kind),
-    }))
+    .map(p => ({ ...p, dimension: normalizeDimension(p.dimension), kind: normalizePathKind(p.kind) }))
     .filter(p => p.dimension === currentDimension);
 }
 
-function passesSearch(obj) {
+function passesSearch(p) {
   if (!currentSearch) return true;
-  const hay = `${obj.name ?? ""} ${obj.owner ?? ""} ${obj.notes ?? ""} ${obj.kind ?? ""} ${obj.type ?? ""}`.toLowerCase();
-  return hay.includes(currentSearch);
+  return `${p.name} ${p.owner ?? ""} ${p.notes ?? ""}`.toLowerCase().includes(currentSearch);
 }
 
 function normalizeDimension(d) {
-  const v = String(d ?? "").trim().toLowerCase();
-  if (!v) return "Overworld";
+  const v = String(d ?? "").toLowerCase();
   if (v.startsWith("nether")) return "Nether";
-  if (v.startsWith("over")) return "Overworld";
-  return d;
+  return "Overworld";
 }
 
-function normalizeCategory(category) {
-  const c = String(category ?? "").trim();
-  if (!c) return "Other";
-
-  const lowered = c.toLowerCase();
-  if (lowered === "bases" || lowered === "base") return "Base";
-  if (lowered.includes("community")) return "Community Feature";
-  if (lowered === "farm" || lowered === "farms") return "Farm";
-  if (lowered === "portal" || lowered === "portals") return "Portal";
-  if (lowered === "shop" || lowered === "shops") return "Shop";
-  if (lowered === "other") return "Other";
-
-  return c;
+function normalizeCategory(c) {
+  const v = String(c ?? "").toLowerCase();
+  if (v.includes("base")) return "Base";
+  if (v.includes("farm")) return "Farm";
+  if (v.includes("portal")) return "Portal";
+  if (v.includes("shop")) return "Shop";
+  if (v.includes("community")) return "Community Feature";
+  return "Other";
 }
 
-function normalizePathKind(kind) {
-  const k = String(kind ?? "").trim().toLowerCase();
-  if (!k) return "nether_path";
-  if (k === "ice" || k === "icerail" || k === "ice_rail" || k === "ice-rail") return "ice_rail";
-  if (k === "nether" || k === "path" || k === "nether_path" || k === "nether-path") return "nether_path";
-  return k;
-}
-
-function friendlyPathKind(kind) {
-  const k = normalizePathKind(kind);
-  if (k === "ice_rail") return "Ice Railway";
-  if (k === "nether_path") return "Nether Pathway";
-  return k;
+function normalizePathKind(k) {
+  const v = String(k ?? "").toLowerCase();
+  if (v.includes("ice")) return "ice_rail";
+  return "nether_path";
 }
 
 // -----------------------------
-// STYLES & POPUPS
+// STYLES / POPUPS
 // -----------------------------
 function pathStyle(p) {
-  const kind = normalizePathKind(p.kind);
-
-  // Blue for ice railway
-  if (kind === "ice_rail") {
-    return { color: "#2b6cff", weight: 3, opacity: 0.95 };
+  if (p.kind === "ice_rail") {
+    return { color: "#3d7cff", weight: 4, opacity: 1.0 };
   }
-
-  // Dark red for nether pathway
-  return { color: "#bb2935", weight: 3, opacity: 0.95 };
+  return { color: "#a31621", weight: 4, opacity: 1.0 };
 }
 
-function buildPoiPopupHtml(p) {
-  const owner = p.owner ? `<div><strong>Owner:</strong> ${escapeHtml(p.owner)}</div>` : "";
-  const notes = p.notes ? `<div style="margin-top:6px">${escapeHtml(p.notes)}</div>` : "";
-
+function buildPoiPopup(p) {
   return `
-    <strong>${escapeHtml(p.name ?? "(Unnamed)")}</strong><br/>
-    <em>${escapeHtml(p.category ?? "")}</em><br/>
-    <div>XYZ: ${p.x}, ${p.y}, ${p.z}</div>
-    <div><strong>Dimension:</strong> ${escapeHtml(p.dimension)}</div>
-    ${owner}
-    ${notes}
-  `;
-}
-
-function buildPathPopupHtml(p) {
-  const from = p.from || {};
-  const to = p.to || {};
-  const kindLabel = friendlyPathKind(p.kind);
-
-  const notes = p.notes ? `<div style="margin-top:6px">${escapeHtml(p.notes)}</div>` : "";
-
-  return `
-    <strong>${escapeHtml(p.name ?? "Path")}</strong><br/>
-    <em>${escapeHtml(kindLabel)}</em><br/>
-    <div>From: ${from.x}, ${from.z} → To: ${to.x}, ${to.z}</div>
-    ${notes}
+    <strong>${escapeHtml(p.name)}</strong><br/>
+    <em>${escapeHtml(p.category)}</em><br/>
+    XYZ: ${p.x}, ${p.y}, ${p.z}<br/>
+    ${p.owner ? `<strong>Owner:</strong> ${escapeHtml(p.owner)}<br/>` : ""}
+    ${p.notes ? escapeHtml(p.notes) : ""}
   `;
 }
 
