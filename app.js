@@ -6,13 +6,11 @@ console.log("Waystone Atlas loaded");
 const MAPS = {
   Overworld: {
     image: "world.jpg",
-    //bounds: { minX: -5159, maxX: 5157, minZ: -2611, maxZ: 2609 }
-    bounds: { minX: -6069, maxX: 6067, minZ: -3072, maxZ: 3070 }
+    bounds: { minX: -5159, maxX: 5157, minZ: -2611, maxZ: 2609 }
   },
   Nether: {
     image: "nether.jpg",
-    // PLACEHOLDER DEFAULTS — update these to match your exported nether image visible area.
-    bounds: { minX: -2289, maxX: 2287, minZ: -1159, maxZ: 1157 }
+    bounds: { minX: -2048, maxX: 2048, minZ: -2048, maxZ: 2048 } // update when ready
   }
 };
 
@@ -36,7 +34,6 @@ const map = L.map("map", {
   zoom: -2,
 });
 
-// Convert Minecraft coords -> Leaflet coords
 function mcToLatLng(x, z) {
   return [-z, x];
 }
@@ -46,8 +43,8 @@ let imageOverlay = null;
 const poiLayer = L.layerGroup().addTo(map);
 const pathLayer = L.layerGroup().addTo(map);
 
-// Marker index (prevents stale references)
-const poiMarkers = new Map(); // key: "x,z" -> Leaflet layer (marker or circleMarker)
+// Marker index
+const poiMarkers = new Map(); // "x,z" -> layer
 
 // Data
 let allPois = [];
@@ -58,14 +55,18 @@ const mapSelect = document.getElementById("map-select");
 const searchInput = document.getElementById("search");
 const listEl = document.getElementById("poi-list");
 
+// Mobile TOC elements
+const toc = document.getElementById("directory");
+const tocToggle = document.getElementById("toc-toggle");
+
 let currentDimension = mapSelect.value || "Overworld";
 let currentSearch = "";
 
-// Portal icon (pixel-sized; auto-resizes with zoom like circles)
+// Portal icon
 const portalIcon = L.divIcon({
   className: "portal-icon-wrapper",
-  iconSize: [12, 22],   // width, height in pixels
-  iconAnchor: [6, 11],  // center of the icon
+  iconSize: [12, 22],
+  iconAnchor: [6, 11],
   popupAnchor: [0, -12],
   html: `<div class="portal-icon"></div>`
 });
@@ -96,12 +97,39 @@ function wireUI() {
   mapSelect.addEventListener("change", () => {
     currentDimension = mapSelect.value;
     renderAll();
+    // close drawer on mobile when switching maps
+    closeTOC();
   });
 
   searchInput.addEventListener("input", () => {
     currentSearch = searchInput.value.trim().toLowerCase();
     renderDirectory();
   });
+
+  // Mobile TOC toggle
+  tocToggle.addEventListener("click", () => {
+    const open = toc.classList.toggle("open");
+    tocToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  // Clicking on map closes drawer (mobile)
+  map.on("click", () => closeTOC());
+
+  // If resized to desktop, ensure TOC is not "stuck" closed
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(min-width: 821px)").matches) {
+      toc.classList.remove("open");
+      tocToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
+function closeTOC() {
+  // only relevant on small screens
+  if (window.matchMedia("(max-width: 820px)").matches) {
+    toc.classList.remove("open");
+    tocToggle.setAttribute("aria-expanded", "false");
+  }
 }
 
 // -----------------------------
@@ -140,12 +168,9 @@ function renderPOIs() {
     const category = normalizeCategory(p.category);
 
     let layer;
-
     if (category === "Portal") {
-      // Portals: purple rectangle icon (pixel-based, scales like circle markers)
       layer = L.marker(pos, { icon: portalIcon }).addTo(poiLayer);
     } else {
-      // Default circle for everything else
       layer = L.circleMarker(pos, {
         radius: 6,
         color: "#7b1e2b",
@@ -167,13 +192,11 @@ function renderPaths() {
     const { from, to } = p;
     if (!isNum(from?.x) || !isNum(from?.z) || !isNum(to?.x) || !isNum(to?.z)) return;
 
-    // glow
     L.polyline(
       [mcToLatLng(from.x, from.z), mcToLatLng(to.x, to.z)],
       { ...pathStyle(p), weight: 8, opacity: 0.25 }
     ).addTo(pathLayer);
 
-    // main line
     L.polyline(
       [mcToLatLng(from.x, from.z), mcToLatLng(to.x, to.z)],
       pathStyle(p)
@@ -182,7 +205,7 @@ function renderPaths() {
 }
 
 // -----------------------------
-// DIRECTORY (POIs ONLY - NO PATHS)
+// DIRECTORY (POIs ONLY)
 // -----------------------------
 function renderDirectory() {
   listEl.innerHTML = "";
@@ -195,7 +218,7 @@ function renderDirectory() {
   });
 
   Object.values(groups).forEach(arr =>
-    arr.sort((a, b) => String(a.name).localeCompare(String(b.name)))
+    arr.sort((a, b) => String(a.name ?? "").localeCompare(String(b.name ?? "")))
   );
 
   const orderedCats = [
@@ -226,15 +249,14 @@ function renderDirectory() {
         const layer = poiMarkers.get(`${p.x},${p.z}`);
         if (!layer) return;
 
-        // Works for markers (portals) and circleMarkers (everything else)
-        const center = (typeof layer.getLatLng === "function")
-          ? layer.getLatLng()
-          : null;
-
+        const center = (typeof layer.getLatLng === "function") ? layer.getLatLng() : null;
         if (!center) return;
 
         map.setView(center, Math.max(map.getZoom(), -1));
         layer.openPopup();
+
+        // Auto-close drawer on mobile after selecting a POI
+        closeTOC();
       });
 
       listEl.appendChild(li);

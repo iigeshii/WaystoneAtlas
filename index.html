@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Waystone Atlas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Waystone Atlas</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="styles.css" />
@@ -13,29 +13,35 @@
     <div class="topbar">
       <div class="title">Waystone Atlas</div>
 
+      <button id="toc-toggle" class="toc-toggle" aria-controls="directory" aria-expanded="false">
+        ☰ Locations
+      </button>
+
       <label class="control">
-        Map:
+        Map
         <select id="map-select">
-          <option value="Overworld">Overworld</option>
-          <option value="Nether">Nether</option>
+          <option>Overworld</option>
+          <option>Nether</option>
         </select>
       </label>
 
       <label class="control">
-        Search:
-        <input id="search" type="text" placeholder="type to filter…" />
+        Search
+        <input id="search" placeholder="type to filter…" />
       </label>
     </div>
   </header>
 
-  <main id="app">
-    <aside id="directory">
-      <div class="toc-title">📍 REALM LOCATIONS — TABLE OF CONTENTS</div>
+  <div id="app">
+    <aside id="directory" class="directory" aria-label="Locations">
+      <div class="toc-title">📍 REALM LOCATIONS</div>
       <ul id="poi-list"></ul>
     </aside>
 
-    <div id="map"></div>
-  </main>
+    <main id="map-wrap">
+      <div id="map"></div>
+    </main>
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="app.js" defer></script>
