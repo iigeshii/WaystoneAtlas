@@ -59,12 +59,12 @@
     "dimension": "Overworld"
   },
   {
-    "name": "Cloud & Vamp’s Spot",
+    "name": "Cloud's Starter Base",
     "x": 273,
     "y": 68,
     "z": -227,
     "category": "Base",
-    "owner": "Cloud, Vamp",
+    "owner": "Cloud",
     "notes": "Posted No Trespassing",
     "dimension": "Overworld"
   },
@@ -94,8 +94,8 @@
     "y": 69,
     "z": -280,
     "category": "Other",
-    "owner": "Elena",
-    "notes": "Trail of blood(?) leading to Cloud & Vamp’s Spot",
+    "owner": "Cloud",
+    "notes": "Trail of blood(?) leading to Cloud Starter Base",
     "dimension": "Overworld"
   },
   {
