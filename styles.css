@@ -91,3 +91,26 @@ header {
 #map {
   flex: 1;
 }
+
+/* -----------------------------
+   Portal icon (pixel-based marker)
+   ----------------------------- */
+
+.portal-icon-wrapper {
+  /* Leaflet will apply positioning; keep wrapper clean */
+}
+
+.portal-icon {
+  width: 10px;
+  height: 14px;
+  box-sizing: border-box;
+
+  background: #5a1a7a;      /* purple fill */
+  border: 2px solid #1a0023; /* dark border */
+  border-radius: 2px;
+
+  /* subtle glow so it reads on dark nether */
+  box-shadow:
+    0 0 6px rgba(140, 60, 230, 0.45),
+    0 0 12px rgba(80, 10, 120, 0.25);
+}

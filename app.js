@@ -36,7 +36,7 @@ const map = L.map("map", {
   zoom: -2,
 });
 
-// Convert Minecraft coords → Leaflet coords
+// Convert Minecraft coords -> Leaflet coords
 function mcToLatLng(x, z) {
   return [-z, x];
 }
@@ -47,7 +47,7 @@ const poiLayer = L.layerGroup().addTo(map);
 const pathLayer = L.layerGroup().addTo(map);
 
 // Marker index (prevents stale references)
-const poiMarkers = new Map(); // key: "x,z" -> marker
+const poiMarkers = new Map(); // key: "x,z" -> Leaflet layer (marker or circleMarker)
 
 // Data
 let allPois = [];
@@ -60,6 +60,15 @@ const listEl = document.getElementById("poi-list");
 
 let currentDimension = mapSelect.value || "Overworld";
 let currentSearch = "";
+
+// Portal icon (pixel-sized; auto-resizes with zoom like circles)
+const portalIcon = L.divIcon({
+  className: "portal-icon-wrapper",
+  iconSize: [12, 22],   // width, height in pixels
+  iconAnchor: [6, 11],  // center of the icon
+  popupAnchor: [0, -12],
+  html: `<div class="portal-icon"></div>`
+});
 
 // -----------------------------
 // LOAD DATA
@@ -128,18 +137,26 @@ function renderPOIs() {
 
   visiblePois().forEach(p => {
     const pos = mcToLatLng(p.x, p.z);
+    const category = normalizeCategory(p.category);
 
-    const marker = L.circleMarker(pos, {
-      radius: 6,
-      color: "#7b1e2b",
-      fillColor: "#c03a4a",
-      fillOpacity: 0.9,
-      weight: 1,
-    }).addTo(poiLayer);
+    let layer;
 
-    marker.bindPopup(buildPoiPopup(p));
+    if (category === "Portal") {
+      // Portals: purple rectangle icon (pixel-based, scales like circle markers)
+      layer = L.marker(pos, { icon: portalIcon }).addTo(poiLayer);
+    } else {
+      // Default circle for everything else
+      layer = L.circleMarker(pos, {
+        radius: 6,
+        color: "#7b1e2b",
+        fillColor: "#c03a4a",
+        fillOpacity: 0.9,
+        weight: 1,
+      }).addTo(poiLayer);
+    }
 
-    poiMarkers.set(`${p.x},${p.z}`, marker);
+    layer.bindPopup(buildPoiPopup(p));
+    poiMarkers.set(`${p.x},${p.z}`, layer);
   });
 }
 
@@ -165,7 +182,7 @@ function renderPaths() {
 }
 
 // -----------------------------
-// DIRECTORY (POIs ONLY — NO PATHS)
+// DIRECTORY (POIs ONLY - NO PATHS)
 // -----------------------------
 function renderDirectory() {
   listEl.innerHTML = "";
@@ -201,15 +218,23 @@ function renderDirectory() {
       const li = document.createElement("li");
       li.className = "dir-item";
       li.innerHTML = `
-        ${escapeHtml("- " + p.name)}
+        ${escapeHtml("- " + (p.name ?? "(Unnamed)"))}
         <span class="sub">${escapeHtml(`${p.x}, ${p.y}, ${p.z}`)}${p.owner ? ` | ${escapeHtml(p.owner)}` : ""}</span>
       `;
 
       li.addEventListener("click", () => {
-        const marker = poiMarkers.get(`${p.x},${p.z}`);
-        if (!marker) return;
-        map.setView(marker.getLatLng(), Math.max(map.getZoom(), -1));
-        marker.openPopup();
+        const layer = poiMarkers.get(`${p.x},${p.z}`);
+        if (!layer) return;
+
+        // Works for markers (portals) and circleMarkers (everything else)
+        const center = (typeof layer.getLatLng === "function")
+          ? layer.getLatLng()
+          : null;
+
+        if (!center) return;
+
+        map.setView(center, Math.max(map.getZoom(), -1));
+        layer.openPopup();
       });
 
       listEl.appendChild(li);
@@ -234,7 +259,7 @@ function visiblePaths() {
 
 function passesSearch(p) {
   if (!currentSearch) return true;
-  return `${p.name} ${p.owner ?? ""} ${p.notes ?? ""}`.toLowerCase().includes(currentSearch);
+  return `${p.name ?? ""} ${p.owner ?? ""} ${p.notes ?? ""}`.toLowerCase().includes(currentSearch);
 }
 
 function normalizeDimension(d) {
