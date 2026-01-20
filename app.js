@@ -6,11 +6,13 @@ console.log("Waystone Atlas loaded");
 const MAPS = {
   Overworld: {
     image: "world.jpg",
-    bounds: { minX: -5159, maxX: 5157, minZ: -2611, maxZ: 2609 }
+    //bounds: { minX: -5159, maxX: 5157, minZ: -2611, maxZ: 2609 }
+    bounds: { minX: -6069, maxX: 6067, minZ: -3072, maxZ: 3070 }
   },
   Nether: {
     image: "nether.jpg",
-    bounds: { minX: -2048, maxX: 2048, minZ: -2048, maxZ: 2048 } // update when ready
+    // PLACEHOLDER DEFAULTS — update these to match your exported nether image visible area.
+    bounds: { minX: -2289, maxX: 2287, minZ: -1159, maxZ: 1157 }
   }
 };
 
