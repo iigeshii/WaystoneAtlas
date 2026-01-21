@@ -1,4 +1,4 @@
-console.log("Waystone Atlas loaded");
+console.log("Waystone Atlas loaded (v-pink-path-1)");
 
 // -----------------------------
 // MAP CONFIG
@@ -194,14 +194,19 @@ function renderPaths() {
     const { from, to } = p;
     if (!isNum(from?.x) || !isNum(from?.z) || !isNum(to?.x) || !isNum(to?.z)) return;
 
+    const pts = [mcToLatLng(from.x, from.z), mcToLatLng(to.x, to.z)];
+    const style = pathStyle(p);
+
+    // Background "glow" line
     L.polyline(
-      [mcToLatLng(from.x, from.z), mcToLatLng(to.x, to.z)],
-      { ...pathStyle(p), weight: 8, opacity: 0.25 }
+      pts,
+      { ...style, weight: 10, opacity: 0.28 }
     ).addTo(pathLayer);
 
+    // Main line
     L.polyline(
-      [mcToLatLng(from.x, from.z), mcToLatLng(to.x, to.z)],
-      pathStyle(p)
+      pts,
+      style
     ).addTo(pathLayer);
   });
 }
@@ -277,7 +282,11 @@ function visiblePois() {
 
 function visiblePaths() {
   return allPaths
-    .map(p => ({ ...p, dimension: normalizeDimension(p.dimension), kind: normalizePathKind(p.kind) }))
+    .map(p => ({
+      ...p,
+      dimension: normalizeDimension(p.dimension),
+      kind: normalizePathKind(p.kind)
+    }))
     .filter(p => p.dimension === currentDimension);
 }
 
@@ -305,6 +314,7 @@ function normalizeCategory(c) {
 function normalizePathKind(k) {
   const v = String(k ?? "").toLowerCase();
   if (v.includes("ice")) return "ice_rail";
+  if (v.includes("pink")) return "pink_path";
   return "nether_path";
 }
 
@@ -312,10 +322,36 @@ function normalizePathKind(k) {
 // STYLES / POPUPS
 // -----------------------------
 function pathStyle(p) {
+  // NOTE: Leaflet styles are set here (not in styles.css).
+  // Making pink very obvious + dashed so you can instantly tell it's working.
   if (p.kind === "ice_rail") {
-    return { color: "#3d7cff", weight: 4, opacity: 1.0 };
+    return {
+      color: "#3d7cff",
+      weight: 4,
+      opacity: 1.0,
+      lineCap: "round",
+      lineJoin: "round"
+    };
   }
-  return { color: "#a31621", weight: 4, opacity: 1.0 };
+
+  // Accept anything that normalizes to pink_path
+  if (p.kind === "pink_path") {
+    return {
+      color: "#ff2fb3",
+      weight: 5,
+      opacity: 1.0,
+      lineCap: "round",
+      lineJoin: "round"
+    };
+  }
+
+  return {
+    color: "#a31621",
+    weight: 4,
+    opacity: 1.0,
+    lineCap: "round",
+    lineJoin: "round"
+  };
 }
 
 function buildPoiPopup(p) {

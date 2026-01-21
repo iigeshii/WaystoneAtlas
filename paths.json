@@ -243,5 +243,131 @@
             "z": 123
         },
         "notes": "Nether pathway leading to Cloud Base portal."
+    },
+    {
+        "name": "Bomber & Gesh Nether Spur",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -173,
+            "z": -124
+        },
+        "to": {
+            "x": -173,
+            "z": 0
+        },
+        "notes": "Vertical Nether corridor from base portal to main axis."
+    },
+    {
+        "name": "West Nether Axis Extension",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 0,
+            "z": 1
+        },
+        "to": {
+            "x": -1248,
+            "z": 1
+        },
+        "notes": "Main Nether axis westward connection."
+    },
+    {
+        "name": "West Axis South Drop",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -1248,
+            "z": 1
+        },
+        "to": {
+            "x": -1248,
+            "z": -61
+        },
+        "notes": "Southward Nether corridor branching off the west axis."
+    },
+    {
+        "name": "South Nether Corridor (-900)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -900,
+            "z": 0
+        },
+        "to": {
+            "x": -900,
+            "z": -254
+        },
+        "notes": "Straight south Nether corridor leading to the Mangrove Portal."
+    },
+    {
+        "name": "South Spur (-554)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -554,
+            "z": 0
+        },
+        "to": {
+            "x": -554,
+            "z": -70
+        },
+        "notes": "Southward Nether corridor from the main axis."
+    },
+    {
+        "name": "West Turn (-70)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -554,
+            "z": -70
+        },
+        "to": {
+            "x": -193,
+            "z": -70
+        },
+        "notes": "Westward turn connecting to adjacent Nether routes."
+    },
+    {
+        "name": "North Rise (-554)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -554,
+            "z": 2
+        },
+        "to": {
+            "x": -554,
+            "z": 63
+        },
+        "notes": "Northward Nether corridor rising to the treetop portal elevation."
+    },
+    {
+        "name": "North Rise (-405)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -405,
+            "z": 2
+        },
+        "to": {
+            "x": -405,
+            "z": 21
+        },
+        "notes": "Short Nether corridor leading up to the Pillager & Raid Farm portal."
+    },
+    {
+        "name": "South Spur (-189)",
+        "dimension": "Nether",
+        "kind": "pink_path",
+        "from": {
+            "x": -189,
+            "z": -1
+        },
+        "to": {
+            "x": -189,
+            "z": -149
+        },
+        "notes": "Southward Nether corridor leading to Porcelain’s Base."
     }
 ]

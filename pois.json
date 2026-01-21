@@ -387,5 +387,98 @@
     "owner": "Suwa",
     "notes": "Main temple-style base for Suwa.",
     "dimension": "Overworld"
+  },
+  {
+    "name": "Bomber & Gesh Base Portal",
+    "x": -1387,
+    "y": 70,
+    "z": -1001,
+    "category": "Portal",
+    "owner": "Bomber & Gesh",
+    "notes": "Portal linking to Nether at (-173, -124).",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Bomber & Gesh Base Portal",
+    "x": -173,
+    "y": 14,
+    "z": -124,
+    "category": "Portal",
+    "owner": "Bomber & Gesh",
+    "notes": "Nether-side portal for Bomber & Gesh base.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Mangrove Portal",
+    "x": -7196,
+    "y": 63,
+    "z": -2038,
+    "category": "Portal",
+    "notes": "Overworld portal near a mangrove swamp.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Mangrove Portal",
+    "x": -900,
+    "y": 14,
+    "z": -254,
+    "category": "Portal",
+    "notes": "Nether-side portal linked to the mangrove swamp overworld portal.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Treetop Portal",
+    "x": -554,
+    "y": 14,
+    "z": 63,
+    "category": "Portal",
+    "notes": "Nether-side portal linking to the Overworld treetop location.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Treetop Portal",
+    "x": -4424,
+    "y": 80,
+    "z": 509,
+    "category": "Portal",
+    "notes": "Overworld portal located on a treetop.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Pillager & Raid Farm Portal",
+    "x": -405,
+    "y": 14,
+    "z": 21,
+    "category": "Portal",
+    "notes": "Nether-side portal linking to the Pillager & Raid Farm area.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Pillager & Raid Farm Portal",
+    "x": -3243,
+    "y": 63,
+    "z": 127,
+    "category": "Portal",
+    "notes": "Overworld portal serving the Pillager & Raid Farm.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Pillager & Raid Farm",
+    "x": -3237,
+    "y": 231,
+    "z": 139,
+    "category": "Farm",
+    "owner": "Hitesh",
+    "notes": "Pillager and Raid Farm structure.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Porcelain’s Base Portal",
+    "x": -189,
+    "y": 14,
+    "z": -149,
+    "category": "Portal",
+    "notes": "Nether-side portal leading to Porcelain’s Base in the Overworld.",
+    "dimension": "Nether"
   }
 ]
