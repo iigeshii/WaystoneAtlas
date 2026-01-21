@@ -480,5 +480,23 @@
     "category": "Portal",
     "notes": "Nether-side portal leading to Porcelain’s Base in the Overworld.",
     "dimension": "Nether"
+  },
+  {
+    "name": "Porcelain’s Base Portal",
+    "x": -1510,
+    "y": 79,
+    "z": -1202,
+    "category": "Portal",
+    "notes": "Overworld portal for Porcelain’s Base.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Porcelain’s Base",
+    "x": -1469,
+    "y": 70,
+    "z": -1190,
+    "category": "Base",
+    "notes": "Main base location.",
+    "dimension": "Overworld"
   }
 ]
