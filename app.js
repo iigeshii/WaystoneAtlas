@@ -1,3 +1,4 @@
+// app.js (FULL FILE)
 console.log("Waystone Atlas loaded (v-pink-path-1)");
 
 // -----------------------------
@@ -108,10 +109,16 @@ function wireUI() {
     renderDirectory();
   });
 
+  // Ensure mobile search starts hidden unless drawer is open
+  document.body.classList.toggle("toc-open", toc.classList.contains("open"));
+
   // Mobile TOC toggle
   tocToggle.addEventListener("click", () => {
     const open = toc.classList.toggle("open");
     tocToggle.setAttribute("aria-expanded", open ? "true" : "false");
+
+    // ✅ Drives the mobile-only CSS rule that shows/hides Search
+    document.body.classList.toggle("toc-open", open);
   });
 
   // Clicking on map closes drawer (mobile)
@@ -122,6 +129,7 @@ function wireUI() {
     if (window.matchMedia("(min-width: 821px)").matches) {
       toc.classList.remove("open");
       tocToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("toc-open");
     }
   });
 }
@@ -131,6 +139,7 @@ function closeTOC() {
   if (window.matchMedia("(max-width: 820px)").matches) {
     toc.classList.remove("open");
     tocToggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("toc-open");
   }
 }
 
@@ -323,7 +332,7 @@ function normalizePathKind(k) {
 // -----------------------------
 function pathStyle(p) {
   // NOTE: Leaflet styles are set here (not in styles.css).
-  // Making pink very obvious + dashed so you can instantly tell it's working.
+  // Making pink very obvious so you can instantly tell it's working.
   if (p.kind === "ice_rail") {
     return {
       color: "#3d7cff",
@@ -334,7 +343,6 @@ function pathStyle(p) {
     };
   }
 
-  // Accept anything that normalizes to pink_path
   if (p.kind === "pink_path") {
     return {
       color: "#ff2fb3",

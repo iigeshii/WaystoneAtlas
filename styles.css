@@ -1,3 +1,4 @@
+/* styles.css (FULL FILE) */
 html, body {
   height: 100%;
   margin: 0;
@@ -134,6 +135,16 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+  }
+
+  /* ✅ Fully-compatible UX fix:
+     Hide Search unless Locations drawer is open.
+     app.js toggles body.toc-open when the drawer opens/closes. */
+  .search-control {
+    display: none;
+  }
+  body.toc-open .search-control {
+    display: inline-flex;
   }
 
   /* make app single-column map-first */
