@@ -75,7 +75,7 @@
         "kind": "nether_path",
         "from": {
             "x": 391,
-            "z": 195
+            "z": 0
         },
         "to": {
             "x": 391,
@@ -593,5 +593,117 @@
             "z": -71
         },
         "notes": "Final connector to the Flame & Tala’s Base portal."
+    },
+    {
+        "name": "East Corridor (3,247 → 210,247)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 3,
+            "z": 247
+        },
+        "to": {
+            "x": 210,
+            "z": 247
+        },
+        "notes": "Nether pathway leading east toward the Stronghold portal."
+    },
+    {
+        "name": "West Corridor (-2,262 → -151,262)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -2,
+            "z": 262
+        },
+        "to": {
+            "x": -151,
+            "z": 262
+        },
+        "notes": "Nether pathway leading west toward the Creeper Farm portal."
+    },
+    {
+        "name": "East Corridor (4,270 → 545,270)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 4,
+            "z": 270
+        },
+        "to": {
+            "x": 545,
+            "z": 270
+        },
+        "notes": "Nether pathway extending east along the 270 Z-axis."
+    },
+    {
+        "name": "West Pass (-2,365 → -326,365)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -2,
+            "z": 365
+        },
+        "to": {
+            "x": -326,
+            "z": 365
+        },
+        "notes": "Nether pathway leading west toward the Ancient City portal."
+    },
+    {
+        "name": "East Spur (3,478 → 41,478)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 3,
+            "z": 478
+        },
+        "to": {
+            "x": 41,
+            "z": 478
+        },
+        "notes": "Nether pathway leading to the surface entrance portal."
+    },
+    {
+        "name": "West Corridor (-2,516 → -114,516)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -2,
+            "z": 516
+        },
+        "to": {
+            "x": -114,
+            "z": 516
+        },
+        "notes": "Nether pathway leading west toward an unknown farm portal."
+    },
+    {
+        "name": "West Pass (-2,546 → -195,546)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -2,
+            "z": 546
+        },
+        "to": {
+            "x": -195,
+            "z": 546
+        },
+        "notes": "Nether pathway leading west toward a vertical climb into the Crimson Forest."
+    },
+    {
+        "name": "Fortress Spur (-2,554 → -130,554)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -2,
+            "z": 554
+        },
+        "to": {
+            "x": -130,
+            "z": 554
+        },
+        "notes": "Nether pathway leading to the Nether Fortress and Manual Blaze Farm."
     }
 ]

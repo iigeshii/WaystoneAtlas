@@ -663,5 +663,142 @@
     "category": "Other",
     "notes": "World spawn location.",
     "dimension": "Overworld"
+  },
+  {
+    "name": "Stronghold Portal",
+    "x": 210,
+    "y": 13,
+    "z": 247,
+    "category": "Portal",
+    "notes": "Nether-side portal linking to the Stronghold.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Stronghold Portal",
+    "x": 1694,
+    "y": 24,
+    "z": 1979,
+    "category": "Portal",
+    "notes": "Overworld portal leading to the Stronghold.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Stronghold (End Portal)",
+    "x": 1712,
+    "y": 36,
+    "z": 1992,
+    "category": "Other",
+    "notes": "Stronghold location containing the End Portal.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Creeper Farm Portal",
+    "x": -151,
+    "y": 14,
+    "z": 263,
+    "category": "Portal",
+    "notes": "Nether-side portal linking to the Creeper Farm.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Creeper Farm Portal",
+    "x": -1194,
+    "y": 191,
+    "z": 2108,
+    "category": "Portal",
+    "notes": "Overworld portal for the Creeper Farm.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Creeper Farm",
+    "x": -1199,
+    "y": 182,
+    "z": 2104,
+    "category": "Farm",
+    "owner": "Hitesh",
+    "notes": "Creeper farm owned by Hitesh.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Ancient City Portal",
+    "x": -326,
+    "y": 15,
+    "z": 365,
+    "category": "Portal",
+    "notes": "Nether-side portal linking to an Ancient City.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Ancient City Portal",
+    "x": -2529,
+    "y": -53,
+    "z": 2931,
+    "category": "Portal",
+    "notes": "Overworld portal leading to the Ancient City.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Ancient City",
+    "x": -2548,
+    "y": -51,
+    "z": 2940,
+    "category": "Other",
+    "notes": "Ancient City location near the portal.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Nether Surface Entrance",
+    "x": 41,
+    "y": 32,
+    "z": 478,
+    "category": "Other",
+    "notes": "Entrance up to the Nether surface (not a portal).",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Unknown Farm Portal",
+    "x": -114,
+    "y": 15,
+    "z": 516,
+    "category": "Portal",
+    "notes": "Nether-side portal linking to an unknown farm in the Overworld.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Unknown Farm Portal",
+    "x": -921,
+    "y": 64,
+    "z": 4128,
+    "category": "Portal",
+    "notes": "Overworld portal for an unknown farm.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Unknown Farm",
+    "x": -992,
+    "y": 67,
+    "z": 4112,
+    "category": "Farm",
+    "notes": "Farm of unknown type.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Crimson Forest Vertical Shaft",
+    "x": -195,
+    "y": 15,
+    "z": 546,
+    "category": "Other",
+    "notes": "Steep vertical climb up into the Crimson Forest biome (not a portal, not easily accessible).",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Manual Blaze Farm / Nether Fortress",
+    "x": -125,
+    "y": 55,
+    "z": 555,
+    "category": "Farm",
+    "owner": "Bomberbird & Gesh",
+    "notes": "Nether Fortress with a manual blaze farm. Free to use by anyone. Bring a looting sword.",
+    "dimension": "Nether"
   }
 ]
