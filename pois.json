@@ -496,7 +496,172 @@
     "y": 70,
     "z": -1190,
     "category": "Base",
+    "owner": "Porcelain",
     "notes": "Main base location.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Christmas Village Portal",
+    "x": 101,
+    "y": 14,
+    "z": -324,
+    "category": "Portal",
+    "notes": "Nether-side portal to the Christmas Village.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Christmas Village Portal",
+    "x": 816,
+    "y": -82,
+    "z": 2570,
+    "category": "Portal",
+    "notes": "Overworld portal linking to the Christmas Village.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Christmas Village",
+    "x": 851,
+    "y": 71,
+    "z": -2531,
+    "category": "Community Feature",
+    "notes": "Center of the Christmas Village.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Stronghold Portal",
+    "x": -110,
+    "y": 14,
+    "z": -297,
+    "category": "Portal",
+    "notes": "Nether-side portal linking to the Stronghold (End Portal).",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Stronghold Portal",
+    "x": -891,
+    "y": -19,
+    "z": -2377,
+    "category": "Portal",
+    "notes": "Overworld portal leading to the Stronghold.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Stronghold (End Portal)",
+    "x": -875,
+    "y": -17,
+    "z": -2420,
+    "category": "Other",
+    "notes": "Location of the End Portal within the Stronghold.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Bastion Remnant",
+    "x": 375,
+    "y": 44,
+    "z": -192,
+    "category": "Other",
+    "notes": "Bastion Remnant inhabited by piglins and piglin brutes.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Ancient City Portal",
+    "x": -359,
+    "y": 15,
+    "z": -125,
+    "category": "Portal",
+    "notes": "Nether-side portal linking to an Ancient City in the Overworld.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Ancient City Portal",
+    "x": -2872,
+    "y": 28,
+    "z": -1017,
+    "category": "Portal",
+    "notes": "Overworld portal linking to the Ancient City.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Ancient City",
+    "x": -2900,
+    "y": -36,
+    "z": -1017,
+    "category": "Other",
+    "notes": "Ancient City location beneath the portal.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Donut Island Portal",
+    "x": -5,
+    "y": 14,
+    "z": -103,
+    "category": "Portal",
+    "notes": "Nether-side portal linking to Donut Island.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Piglin Farm",
+    "x": -42,
+    "y": 9,
+    "z": -103,
+    "category": "Farm",
+    "owner": "Cloud",
+    "notes": "Piglin farm near Donut Island portal.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Flame & Tala’s Base Portal",
+    "x": 268,
+    "y": 15,
+    "z": -71,
+    "category": "Portal",
+    "notes": "Nether-side portal leading to Flame & Tala’s base.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Flame & Tala’s Base Portal",
+    "x": 2072,
+    "y": 69,
+    "z": -583,
+    "category": "Portal",
+    "notes": "Overworld portal leading to Flame & Tala’s base.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Flame & Tala’s Base",
+    "x": 2031,
+    "y": 65,
+    "z": -600,
+    "owner": "Flame & Tala",
+    "category": "Base",
+    "notes": "Main base location for Flame & Tala.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Donut Island Portal",
+    "x": -101,
+    "y": 71,
+    "z": -833,
+    "category": "Portal",
+    "notes": "Overworld portal for Donut Island.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Fog Lake",
+    "x": 58,
+    "y": 59,
+    "z": -720,
+    "category": "Community Feature",
+    "notes": "Center of Fog Lake.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "World Spawn",
+    "x": 12,
+    "y": 65,
+    "z": -1274,
+    "category": "Other",
+    "notes": "World spawn location.",
     "dimension": "Overworld"
   }
 ]

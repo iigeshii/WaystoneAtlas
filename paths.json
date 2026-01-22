@@ -369,5 +369,229 @@
             "z": -149
         },
         "notes": "Southward Nether corridor leading to Porcelain’s Base."
+    },
+    {
+        "name": "Ice Line (0,0 → 0,-325)",
+        "dimension": "Nether",
+        "kind": "ice_rail",
+        "from": {
+            "x": 1,
+            "z": 0
+        },
+        "to": {
+            "x": 1,
+            "z": -325
+        },
+        "notes": "Ice path segment."
+    },
+    {
+        "name": "Connector (1,-325 → 1,-405)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 1,
+            "z": -325
+        },
+        "to": {
+            "x": 1,
+            "z": -405
+        },
+        "notes": "Standard nether path segment."
+    },
+    {
+        "name": "Connector (1,-405 → -76,-405)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 1,
+            "z": -405
+        },
+        "to": {
+            "x": -76,
+            "z": -405
+        },
+        "notes": "Standard nether path segment."
+    },
+    {
+        "name": "Ice Spur (1,-323 → 100,-323)",
+        "dimension": "Nether",
+        "kind": "ice_rail",
+        "from": {
+            "x": 1,
+            "z": -323
+        },
+        "to": {
+            "x": 100,
+            "z": -323
+        },
+        "notes": "Ice pathway extending eastward."
+    },
+    {
+        "name": "East Extension (103,-324 → 235,-324)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 103,
+            "z": -324
+        },
+        "to": {
+            "x": 235,
+            "z": -324
+        },
+        "notes": "Nether pathway extending east from the Christmas Village corridor."
+    },
+    {
+        "name": "West Pass (-1,-297 → -110,-297)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -1,
+            "z": -297
+        },
+        "to": {
+            "x": -110,
+            "z": -297
+        },
+        "notes": "Nether pass leading west toward the Stronghold connection."
+    },
+    {
+        "name": "East Corridor (1,-192 → 375,-192)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 1,
+            "z": -192
+        },
+        "to": {
+            "x": 375,
+            "z": -192
+        },
+        "notes": "Nether pathway leading east toward a Bastion Remnant."
+    },
+    {
+        "name": "West Corridor (-1,-125 → -170,-125)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -1,
+            "z": -125
+        },
+        "to": {
+            "x": -170,
+            "z": -125
+        },
+        "notes": "Nether pathway extending west along the -125 Z-axis."
+    },
+    {
+        "name": "West Corridor (-175,-125 → -359,-125)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -175,
+            "z": -125
+        },
+        "to": {
+            "x": -359,
+            "z": -125
+        },
+        "notes": "Nether pathway extending west toward the Ancient City portal."
+    },
+    {
+        "name": "Connector (-10,-107 → -10,-99)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -10,
+            "z": -107
+        },
+        "to": {
+            "x": -10,
+            "z": -99
+        },
+        "notes": "Short connector segment."
+    },
+    {
+        "name": "Connector (-10,-99 → -1,-99)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -10,
+            "z": -99
+        },
+        "to": {
+            "x": 1,
+            "z": -99
+        },
+        "notes": "Short connector segment."
+    },
+    {
+        "name": "Connector (-29,-103 → -11,-103)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -42,
+            "z": -103
+        },
+        "to": {
+            "x": -10,
+            "z": -103
+        },
+        "notes": "Short connector segment near Donut Island area."
+    },
+    {
+        "name": "Connector (-10,-107 → 1,-107)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -10,
+            "z": -107
+        },
+        "to": {
+            "x": 1,
+            "z": -107
+        },
+        "notes": "Short connector segment."
+    },
+    {
+        "name": "Connector (2,-71 → 8,-71)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 2,
+            "z": -71
+        },
+        "to": {
+            "x": 8,
+            "z": -71
+        },
+        "notes": "Connector leading toward Flame & Tala’s base route."
+    },
+    {
+        "name": "Ice Run (8,-71 → 263,-71)",
+        "dimension": "Nether",
+        "kind": "ice_rail",
+        "from": {
+            "x": 8,
+            "z": -71
+        },
+        "to": {
+            "x": 263,
+            "z": -71
+        },
+        "notes": "Ice pathway toward Flame & Tala’s base."
+    },
+    {
+        "name": "Connector (263,-71 → 268,-71)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": 263,
+            "z": -71
+        },
+        "to": {
+            "x": 268,
+            "z": -71
+        },
+        "notes": "Final connector to the Flame & Tala’s Base portal."
     }
 ]
