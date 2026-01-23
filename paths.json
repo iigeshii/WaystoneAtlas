@@ -705,5 +705,19 @@
             "z": 554
         },
         "notes": "Nether pathway leading to the Nether Fortress and Manual Blaze Farm."
+    },
+    {
+        "name": "West Pass (-2,776 → -84,776)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -2,
+            "z": 776
+        },
+        "to": {
+            "x": -84,
+            "z": 776
+        },
+        "notes": "Nether pathway leading west toward the Pale Garden portal."
     }
 ]

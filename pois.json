@@ -800,5 +800,23 @@
     "owner": "Bomberbird & Gesh",
     "notes": "Nether Fortress with a manual blaze farm. Free to use by anyone. Bring a looting sword.",
     "dimension": "Nether"
+  },
+  {
+    "name": "Pale Garden Portal",
+    "x": -84,
+    "y": 15,
+    "z": 776,
+    "category": "Portal",
+    "notes": "Nether-side portal linking to the Pale Garden.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Pale Garden Portal",
+    "x": -672,
+    "y": 111,
+    "z": 6228,
+    "category": "Portal",
+    "notes": "Overworld portal for the Pale Garden.",
+    "dimension": "Overworld"
   }
 ]
