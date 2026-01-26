@@ -818,5 +818,15 @@
     "category": "Portal",
     "notes": "Overworld portal for the Pale Garden.",
     "dimension": "Overworld"
+  },
+  {
+    "name": "Gold Farm",
+    "x": -2765,
+    "y": 93,
+    "z": -954,
+    "category": "Farm",
+    "owner": "Bomber",
+    "notes": "Gold farm owned by Bomber.",
+    "dimension": "Nether"
   }
 ]
