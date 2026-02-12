@@ -6,7 +6,7 @@
     "z": 86,
     "category": "Shop",
     "owner": "Bomberbird",
-    "notes": "The shop is currently empty; supply has not been delivered yet. This note will be updated once supply is achieved.",
+    "notes": "Currently empty; stock has not been delivered yet. This note will be updated once supply arrives.",
     "dimension": "Overworld"
   },
   {
@@ -16,7 +16,7 @@
     "z": 815,
     "category": "Farm",
     "owner": "Skullman",
-    "notes": "Entrance is a small tunnel at the listed coords.",
+    "notes": "Entrance is a small tunnel at the listed coordinates.",
     "dimension": "Overworld"
   },
   {
@@ -26,7 +26,7 @@
     "z": 851,
     "category": "Portal",
     "owner": "Skullman",
-    "notes": "Portal near Skullman base.",
+    "notes": "Portal near Skullman's base.",
     "dimension": "Overworld"
   },
   {
@@ -36,7 +36,7 @@
     "z": -1213,
     "category": "Farm",
     "owner": "Bomberbird",
-    "notes": "Slow farm. May be converted to zombie farm. Dirt, stone, deepslate convertible.",
+    "notes": "Slow farm; may be converted to a zombie farm. Dirt, stone, and deepslate are convertible.",
     "dimension": "Overworld"
   },
   {
@@ -54,8 +54,8 @@
     "y": 71,
     "z": -955,
     "category": "Other",
-    "owner": "GeshGiezel, Fredo",
-    "notes": "Sorter room. Feel free to use; leave 1 item so sorting continues.",
+    "owner": "Gesh & Bomberbird",
+    "notes": "Sorter room. Feel free to use; leave 1 item behind so sorting continues.",
     "dimension": "Overworld"
   },
   {
@@ -65,7 +65,7 @@
     "z": -227,
     "category": "Base",
     "owner": "Cloud",
-    "notes": "Posted No Trespassing",
+    "notes": "Posted: No Trespassing.",
     "dimension": "Overworld"
   },
   {
@@ -74,8 +74,8 @@
     "y": 74,
     "z": -870,
     "category": "Farm",
-    "owner": "Everyone",
-    "notes": "Small community lava farm. Good for making obsidian too. Builder got carried away posing next to a massive pumpkin — irrelevant but amusing.",
+    "owner": "Community",
+    "notes": "Small community lava farm. Great for obsidian too. Builder got carried away posing next to a massive pumpkin (irrelevant, but amusing).",
     "dimension": "Overworld"
   },
   {
@@ -85,7 +85,7 @@
     "z": 196,
     "category": "Shop",
     "owner": "Skullman",
-    "notes": "Guardian Remains",
+    "notes": "Guardian Remains (free stuff).",
     "dimension": "Overworld"
   },
   {
@@ -95,7 +95,7 @@
     "z": -280,
     "category": "Other",
     "owner": "Cloud",
-    "notes": "Trail of blood(?) leading to Cloud Starter Base",
+    "notes": "Trail of blood(?) leading to Cloud's Starter Base.",
     "dimension": "Overworld"
   },
   {
@@ -105,7 +105,7 @@
     "z": -978,
     "category": "Farm",
     "owner": "Bomberbird",
-    "notes": "All items flow up the bubble elevator into the chest above, so no immediate pickup is needed. If you take items from the chest, please inform the owner.",
+    "notes": "Items flow up the bubble elevator into the chest above. If you take items, please inform the owner.",
     "dimension": "Overworld"
   },
   {
@@ -125,7 +125,7 @@
     "z": 73,
     "category": "Other",
     "owner": "Community",
-    "notes": "Shared nether construction materials storage room.",
+    "notes": "Shared Nether construction materials storage room.",
     "dimension": "Nether"
   },
   {
@@ -145,7 +145,7 @@
     "z": 139,
     "category": "Portal",
     "owner": "emsi1y2255",
-    "notes": "Nether portal for Emily’s Gold Farm.",
+    "notes": "Nether portal for emsi1y2255's Gold Farm.",
     "dimension": "Nether"
   },
   {
@@ -154,8 +154,8 @@
     "y": 76,
     "z": 1118,
     "category": "Portal",
-    "owner": "Emily",
-    "notes": "Overworld portal linked to Emily’s Gold Farm.",
+    "owner": "emsi1y2255",
+    "notes": "Overworld portal linked to emsi1y2255's Gold Farm.",
     "dimension": "Overworld"
   },
   {
@@ -175,7 +175,7 @@
     "z": 184,
     "category": "Portal",
     "owner": "emsi1y2255",
-    "notes": "Nether-side portal leading to emsi1y’s base.",
+    "notes": "Nether-side portal leading to emsi1y2255's base.",
     "dimension": "Nether"
   },
   {
@@ -185,7 +185,7 @@
     "z": 1356,
     "category": "Base",
     "owner": "emsi1y2255",
-    "notes": "Main overworld base for emsi1y.",
+    "notes": "Main Overworld base for emsi1y2255.",
     "dimension": "Overworld"
   },
   {
@@ -195,7 +195,7 @@
     "z": 1476,
     "category": "Portal",
     "owner": "emsi1y2255",
-    "notes": "Overworld portal connected to emsi1y’s nether route.",
+    "notes": "Overworld portal connected to emsi1y2255's Nether route.",
     "dimension": "Overworld"
   },
   {
@@ -205,7 +205,7 @@
     "z": 1292,
     "category": "Farm",
     "owner": "emsi1y2255",
-    "notes": "Skeleton farm near emsi1y’s base.",
+    "notes": "Skeleton farm near emsi1y2255's base.",
     "dimension": "Overworld"
   },
   {
@@ -215,7 +215,7 @@
     "z": 218,
     "category": "Portal",
     "owner": "Flameboi",
-    "notes": "Nether portal leading to Pillager Outpost farm.",
+    "notes": "Nether portal leading to the Pillager Outpost farm.",
     "dimension": "Nether"
   },
   {
@@ -225,7 +225,7 @@
     "z": 1750,
     "category": "Portal",
     "owner": "Flameboi",
-    "notes": "Overworld portal connected to Pillager Outpost farm.",
+    "notes": "Overworld portal connected to the Pillager Outpost farm.",
     "dimension": "Overworld"
   },
   {
@@ -255,7 +255,7 @@
     "z": 83,
     "category": "Other",
     "owner": "Community",
-    "notes": "Designated nether scrap blasting / mining area.",
+    "notes": "Designated Nether scrap blasting/mining area.",
     "dimension": "Nether"
   },
   {
@@ -265,7 +265,7 @@
     "z": 536,
     "category": "Portal",
     "owner": "Unknown",
-    "notes": "Portal to underground cave with pathway up to sandstone pit.",
+    "notes": "Portal to an underground cave with a pathway up to the sandstone pit.",
     "dimension": "Nether"
   },
   {
@@ -275,7 +275,7 @@
     "z": 4307,
     "category": "Portal",
     "owner": "Unknown",
-    "notes": "Overworld portal connected to sandstone pit.",
+    "notes": "Overworld portal connected to the sandstone pit.",
     "dimension": "Overworld"
   },
   {
@@ -285,7 +285,7 @@
     "z": 4307,
     "category": "Other",
     "owner": "Unknown",
-    "notes": "Sandstone mining pit accessed from underground cave.",
+    "notes": "Sandstone mining pit accessed from the underground cave.",
     "dimension": "Overworld"
   },
   {
@@ -295,7 +295,7 @@
     "z": 254,
     "category": "Other",
     "owner": "N/A",
-    "notes": "Bastion Remnant — Piglin Brutes spawn here.",
+    "notes": "Bastion Remnant. Piglin brutes spawn here.",
     "dimension": "Nether"
   },
   {
@@ -305,7 +305,7 @@
     "z": -95,
     "category": "Portal",
     "owner": "Suwa",
-    "notes": "Nether portal leading to Suwa Base.",
+    "notes": "Nether portal leading to Suwa's base.",
     "dimension": "Nether"
   },
   {
@@ -315,7 +315,7 @@
     "z": -206,
     "category": "Portal",
     "owner": "Suwa",
-    "notes": "Portal for Suwa’s old base.",
+    "notes": "Portal for Suwa's old base.",
     "dimension": "Nether"
   },
   {
@@ -325,7 +325,7 @@
     "z": 257,
     "category": "Portal",
     "owner": "Poppie",
-    "notes": "Nether-side portal connecting to Poppie’s restored ruined portal base in the Overworld.",
+    "notes": "Nether-side portal connecting to Poppie's restored ruined portal base in the Overworld.",
     "dimension": "Nether"
   },
   {
@@ -345,7 +345,7 @@
     "z": 123,
     "category": "Portal",
     "owner": "Cloud",
-    "notes": "Nether portal leading to Cloud Base.",
+    "notes": "Nether portal leading to Cloud's base.",
     "dimension": "Nether"
   },
   {
@@ -355,7 +355,7 @@
     "z": 977,
     "category": "Portal",
     "owner": "Cloud",
-    "notes": "Overworld portal connected to Cloud Base.",
+    "notes": "Overworld portal connected to Cloud's base.",
     "dimension": "Overworld"
   },
   {
@@ -375,7 +375,7 @@
     "z": -785,
     "category": "Portal",
     "owner": "Suwa",
-    "notes": "Overworld portal connected to Suwa’s nether route.",
+    "notes": "Overworld portal connected to Suwa's Nether route.",
     "dimension": "Overworld"
   },
   {
@@ -394,8 +394,8 @@
     "y": 70,
     "z": -1001,
     "category": "Portal",
-    "owner": "Bomber & Gesh",
-    "notes": "Portal linking to Nether at (-173, -124).",
+    "owner": "Bomberbird & Gesh",
+    "notes": "Portal linking to the Nether at (-173, -124).",
     "dimension": "Overworld"
   },
   {
@@ -404,8 +404,8 @@
     "y": 14,
     "z": -124,
     "category": "Portal",
-    "owner": "Bomber & Gesh",
-    "notes": "Nether-side portal for Bomber & Gesh base.",
+    "owner": "Bomberbird & Gesh",
+    "notes": "Nether-side portal for Bomberbird & Gesh base.",
     "dimension": "Nether"
   },
   {
@@ -423,7 +423,7 @@
     "y": 14,
     "z": -254,
     "category": "Portal",
-    "notes": "Nether-side portal linked to the mangrove swamp overworld portal.",
+    "notes": "Nether-side portal linked to the mangrove swamp Overworld portal.",
     "dimension": "Nether"
   },
   {
@@ -469,7 +469,7 @@
     "z": 139,
     "category": "Farm",
     "owner": "Hitesh",
-    "notes": "Pillager and Raid Farm structure.",
+    "notes": "Pillager and raid farm structure.",
     "dimension": "Overworld"
   },
   {
@@ -478,7 +478,7 @@
     "y": 14,
     "z": -149,
     "category": "Portal",
-    "notes": "Nether-side portal leading to Porcelain’s Base in the Overworld.",
+    "notes": "Nether-side portal leading to Porcelain's base in the Overworld.",
     "dimension": "Nether"
   },
   {
@@ -487,7 +487,7 @@
     "y": 79,
     "z": -1202,
     "category": "Portal",
-    "notes": "Overworld portal for Porcelain’s Base.",
+    "notes": "Overworld portal for Porcelain's base.",
     "dimension": "Overworld"
   },
   {
@@ -606,7 +606,7 @@
     "z": -103,
     "category": "Farm",
     "owner": "Cloud",
-    "notes": "Piglin farm near Donut Island portal.",
+    "notes": "Piglin farm near the Donut Island portal.",
     "dimension": "Nether"
   },
   {
@@ -615,7 +615,7 @@
     "y": 15,
     "z": -71,
     "category": "Portal",
-    "notes": "Nether-side portal leading to Flame & Tala’s base.",
+    "notes": "Nether-side portal leading to Flame & Tala's base.",
     "dimension": "Nether"
   },
   {
@@ -624,7 +624,7 @@
     "y": 69,
     "z": -583,
     "category": "Portal",
-    "notes": "Overworld portal leading to Flame & Tala’s base.",
+    "notes": "Overworld portal leading to Flame & Tala's base.",
     "dimension": "Overworld"
   },
   {
@@ -716,7 +716,7 @@
     "z": 2104,
     "category": "Farm",
     "owner": "Hitesh",
-    "notes": "Creeper farm. Also includes a bone meal–powered sugar cane/paper farm.",
+    "notes": "Creeper farm. Also includes a bone meal-powered sugar cane/paper farm.",
     "dimension": "Overworld"
   },
   {
@@ -788,7 +788,7 @@
     "y": 15,
     "z": 546,
     "category": "Other",
-    "notes": "Steep vertical climb up into the Crimson Forest biome (not a portal, not easily accessible).",
+    "notes": "Steep vertical climb into the Crimson Forest biome (not a portal; not easily accessible).",
     "dimension": "Nether"
   },
   {
@@ -798,7 +798,7 @@
     "z": 555,
     "category": "Farm",
     "owner": "Bomberbird & Gesh",
-    "notes": "Nether Fortress with a manual blaze farm. Free to use by anyone. Bring a looting sword.",
+    "notes": "Nether Fortress with a manual blaze farm. Free to use. Bring a looting sword.",
     "dimension": "Nether"
   },
   {
@@ -825,8 +825,8 @@
     "y": 93,
     "z": -954,
     "category": "Farm",
-    "owner": "Bomber",
-    "notes": "Gold farm owned by Bomber.",
+    "owner": "Bomberbird",
+    "notes": "Gold farm owned by Bomberbird.",
     "dimension": "Overworld"
   },
   {
@@ -866,7 +866,7 @@
     "z": -898,
     "category": "Community Feature",
     "owner": "Gesh & Bomberbird",
-    "notes": "Bomberbird courtroom and courthouse. Contact the judge for any disputes or trials.",
+    "notes": "Bomberbird's courtroom and courthouse. Contact the judge for disputes or trials.",
     "dimension": "Overworld"
   },
   {
@@ -885,7 +885,7 @@
     "y": 72,
     "z": -937,
     "category": "Farm",
-    "owner": "Bomber Bird",
+    "owner": "Bomberbird",
     "notes": "All wool colors available.",
     "dimension": "Overworld"
   },
@@ -905,7 +905,7 @@
     "y": 142,
     "z": 1204,
     "category": "Farm",
-    "owner": "Skullman?",
+    "owner": "Skullman",
     "notes": "All mob types. Trident chamber below. AFK upstairs.",
     "dimension": "Overworld"
   },
@@ -915,7 +915,7 @@
     "y": 127,
     "z": 1351,
     "category": "Farm",
-    "owner": "Skull Man",
+    "owner": "Skullman",
     "notes": "Produces gunpowder and paper.",
     "dimension": "Overworld"
   },
@@ -936,7 +936,7 @@
     "z": 1192,
     "category": "Farm",
     "owner": "Skullman",
-    "notes": "All prismarine variants and sea lanterns. Most items also available at Guardian shops. AFK in the AFK room. Avoid picking up tridents near the killers.",
+    "notes": "All prismarine variants and sea lanterns. Most items are also available at Guardian shops. AFK in the AFK room. Avoid picking up tridents near the killers.",
     "dimension": "Overworld"
   }
 ]
