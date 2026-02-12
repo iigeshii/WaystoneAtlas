@@ -512,8 +512,8 @@
   {
     "name": "Christmas Village Portal",
     "x": 816,
-    "y": -82,
-    "z": 2570,
+    "y": 82,
+    "z": -2570,
     "category": "Portal",
     "notes": "Overworld portal linking to the Christmas Village.",
     "dimension": "Overworld"
@@ -692,7 +692,7 @@
     "dimension": "Overworld"
   },
   {
-    "name": "Creeper Farm Portal",
+    "name": "Gunpowder Farm Portal",
     "x": -151,
     "y": 14,
     "z": 263,
@@ -701,7 +701,7 @@
     "dimension": "Nether"
   },
   {
-    "name": "Creeper Farm Portal",
+    "name": "Gunpowder Farm Portal",
     "x": -1194,
     "y": 191,
     "z": 2108,
@@ -710,13 +710,13 @@
     "dimension": "Overworld"
   },
   {
-    "name": "Creeper Farm",
+    "name": "Gunpowder Farm",
     "x": -1199,
     "y": 182,
     "z": 2104,
     "category": "Farm",
     "owner": "Hitesh",
-    "notes": "Creeper farm owned by Hitesh.",
+    "notes": "Creeper farm. Also includes a bone meal–powered sugar cane/paper farm.",
     "dimension": "Overworld"
   },
   {
@@ -827,6 +827,116 @@
     "category": "Farm",
     "owner": "Bomber",
     "notes": "Gold farm owned by Bomber.",
-    "dimension": "Nether"
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Bee Farm",
+    "x": -1445,
+    "y": 76,
+    "z": -1000,
+    "category": "Farm",
+    "owner": "Gesh & Bomberbird",
+    "notes": "Fill the dispensers with bottles and cheers.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Cactus Farm",
+    "x": -1433,
+    "y": 72,
+    "z": -1050,
+    "category": "Farm",
+    "owner": "Gesh & Bomberbird",
+    "notes": "Go down the ladder and take whatever you need.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Rebirth Rock Temple",
+    "x": -1719,
+    "y": -103,
+    "z": -1058,
+    "category": "Community Feature",
+    "owner": "Gesh & Bomberbird",
+    "notes": "All enchantments available for one emerald. Iron farm below for emerald trading.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Courthouse",
+    "x": -1686,
+    "y": 74,
+    "z": -898,
+    "category": "Community Feature",
+    "owner": "Gesh & Bomberbird",
+    "notes": "Bomberbird courtroom and courthouse. Contact the judge for any disputes or trials.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Turtle Scute Farm",
+    "x": -1850,
+    "y": 66,
+    "z": -700,
+    "category": "Farm",
+    "owner": "Bomberbird",
+    "notes": "Do not kill the main turtles. Scutes drop when baby turtles grow up. A chest is below the smooth block construct where scutes collect. Baby turtles must enter the chamber and die via suffocation.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Wool Farm",
+    "x": -1550,
+    "y": 72,
+    "z": -937,
+    "category": "Farm",
+    "owner": "Bomber Bird",
+    "notes": "All wool colors available.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Shulker Shell Farm",
+    "x": -127,
+    "y": 119,
+    "z": 1023,
+    "category": "Farm",
+    "owner": "Kai",
+    "notes": "Climb up the bamboo ladder to the AFK room.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Mob Farm",
+    "x": -176,
+    "y": 142,
+    "z": 1204,
+    "category": "Farm",
+    "owner": "Skullman?",
+    "notes": "All mob types. Trident chamber below. AFK upstairs.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Gunpowder & Paper Farm",
+    "x": -324,
+    "y": 127,
+    "z": 1351,
+    "category": "Farm",
+    "owner": "Skull Man",
+    "notes": "Produces gunpowder and paper.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Squid Ink Farm",
+    "x": -456,
+    "y": 168,
+    "z": 1206,
+    "category": "Farm",
+    "owner": "Hitesh",
+    "notes": "Stand in the AFK room. Produces squid ink for black dye.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Guardian Farm",
+    "x": -297,
+    "y": 61,
+    "z": 1192,
+    "category": "Farm",
+    "owner": "Skullman",
+    "notes": "All prismarine variants and sea lanterns. Most items also available at Guardian shops. AFK in the AFK room. Avoid picking up tridents near the killers.",
+    "dimension": "Overworld"
   }
 ]

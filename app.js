@@ -8,7 +8,7 @@ const MAPS = {
   Overworld: {
     image: "world.jpg",
     //bounds: { minX: -5159, maxX: 5157, minZ: -2611, maxZ: 2609 }
-    bounds: { minX: -6069, maxX: 6067, minZ: -3072, maxZ: 3070 }
+    bounds: { minX: -13678, maxX: 13676, minZ: -6923, maxZ: 6921 }
   },
   Nether: {
     image: "nether.jpg",
