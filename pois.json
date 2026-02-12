@@ -319,13 +319,13 @@
     "dimension": "Nether"
   },
   {
-    "name": "Restored Ruined Portal",
+    "name": "Poppie’s Base Portal",
     "x": 419,
     "y": 14,
     "z": 257,
     "category": "Portal",
-    "owner": "Community",
-    "notes": "Nether portal connected to a restored ruined portal in the Overworld.",
+    "owner": "Poppie",
+    "notes": "Nether-side portal connecting to Poppie’s restored ruined portal base in the Overworld.",
     "dimension": "Nether"
   },
   {
