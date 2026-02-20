@@ -390,16 +390,6 @@
   },
   {
     "name": "Bomber & Gesh Base Portal",
-    "x": -1387,
-    "y": 70,
-    "z": -1001,
-    "category": "Portal",
-    "owner": "Bomberbird & Gesh",
-    "notes": "Portal linking to the Nether at (-173, -124).",
-    "dimension": "Overworld"
-  },
-  {
-    "name": "Bomber & Gesh Base Portal",
     "x": -173,
     "y": 14,
     "z": -124,
@@ -487,6 +477,7 @@
     "y": 79,
     "z": -1202,
     "category": "Portal",
+    "owner": "Porcelain",
     "notes": "Overworld portal for Porcelain's base.",
     "dimension": "Overworld"
   },
@@ -937,6 +928,46 @@
     "category": "Farm",
     "owner": "Skullman",
     "notes": "All prismarine variants and sea lanterns. Most items are also available at Guardian shops. AFK in the AFK room. Avoid picking up tridents near the killers.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Desert Rose Village Portal",
+    "x": -301,
+    "y": 14,
+    "z": -105,
+    "category": "Portal",
+    "owner": "Porcelain",
+    "notes": "Nether-side portal for Desert Rose Village.",
+    "dimension": "Nether"
+  },
+  {
+    "name": "Desert Rose Village",
+    "x": -2406,
+    "y": 72,
+    "z": -849,
+    "category": "Portal",
+    "owner": "Porcelain",
+    "notes": "Overworld portal for Desert Rose Village.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Kuhfort South Portal",
+    "x": -1554,
+    "y": 70,
+    "z": -970,
+    "category": "Portal",
+    "owner": "Gesh & Bomberbird",
+    "notes": "Portal serving South Kuhfort — Union of Copper Courthouse and industrial area.",
+    "dimension": "Overworld"
+  },
+  {
+    "name": "Bauernhaven",
+    "x": -1423,
+    "y": 71,
+    "z": -1004,
+    "category": "Community Feature",
+    "owner": "Gesh & Bomberbird",
+    "notes": "Farming village near the Sorting Barn, featuring automated cultivated fields, bee farms, and agricultural infrastructure supporting the Union of Copper.",
     "dimension": "Overworld"
   }
 ]
