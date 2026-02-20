@@ -719,5 +719,19 @@
             "z": 776
         },
         "notes": "Nether pathway leading west toward the Pale Garden portal."
+    },
+    {
+        "name": "Village Connector (-301,-105 → 0,-105)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -301,
+            "z": -105
+        },
+        "to": {
+            "x": -301,
+            "z": 0
+        },
+        "notes": "Nether pathway connecting to The Desert Rose Village."
     }
 ]
