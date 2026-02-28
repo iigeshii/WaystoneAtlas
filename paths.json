@@ -245,20 +245,6 @@
         "notes": "Nether pathway leading to Cloud Base portal."
     },
     {
-        "name": "Bomber & Gesh Nether Spur",
-        "dimension": "Nether",
-        "kind": "nether_path",
-        "from": {
-            "x": -173,
-            "z": -124
-        },
-        "to": {
-            "x": -173,
-            "z": 0
-        },
-        "notes": "Vertical Nether corridor from base portal to main axis."
-    },
-    {
         "name": "West Nether Axis Extension",
         "dimension": "Nether",
         "kind": "nether_path",
@@ -733,5 +719,19 @@
             "z": 0
         },
         "notes": "Nether pathway connecting to The Desert Rose Village."
+    },
+    {
+        "name": "South Spur (-195,1 → -195,-120)",
+        "dimension": "Nether",
+        "kind": "nether_path",
+        "from": {
+            "x": -195,
+            "z": 1
+        },
+        "to": {
+            "x": -195,
+            "z": -120
+        },
+        "notes": "Nether pathway leading south to the Kuhfort South Portal."
     }
 ]

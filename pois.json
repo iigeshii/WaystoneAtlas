@@ -389,16 +389,6 @@
     "dimension": "Overworld"
   },
   {
-    "name": "Bomber & Gesh Base Portal",
-    "x": -173,
-    "y": 14,
-    "z": -124,
-    "category": "Portal",
-    "owner": "Bomberbird & Gesh",
-    "notes": "Nether-side portal for Bomberbird & Gesh base.",
-    "dimension": "Nether"
-  },
-  {
     "name": "Mangrove Portal",
     "x": -7196,
     "y": 63,
@@ -969,5 +959,14 @@
     "owner": "Gesh & Bomberbird",
     "notes": "Farming village near the Sorting Barn, featuring automated cultivated fields, bee farms, and agricultural infrastructure supporting the Union of Copper.",
     "dimension": "Overworld"
+  },
+  {
+    "name": "Kuhfort South Portal",
+    "x": -195,
+    "y": 14,
+    "z": -120,
+    "category": "Portal",
+    "notes": "Nether-side portal for the Kuhfort South connection.",
+    "dimension": "Nether"
   }
 ]
